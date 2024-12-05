@@ -1,11 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import HeroSlider from "../components/home/HeroSlider.astro";
+import Services from "../components/home/Services.astro";
+import About from "../components/home/About.astro";
+import Why from "../components/home/Why.astro";
+import Certificaciones from "../components/home/Certificaciones.astro";
+import Customers from "../components/home/Customers.astro";
+import Cta from "../components/home/Cta.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const slides = [
+  {
+    url: "hero_1.png",
+    title: "Buenas prácticas de almacenamiento",
+    subtitle:
+      "Garantizar la conservación, eficacia y seguridad de nuestros productos durante su almacenamiento, cumpliendo con los más altos estándare",
+  },
+  {
+    url: "/hero_2.png",
+    title: "Transporte y almacenaje productos farmacéuticos",
+    subtitle:
+      "Garantizar la entrega segura y oportuna de suministros médicos en todo el país con logística con temperatura controlada.",
+  },
+  {
+    url: "/hero_3.png",
+    title: "Discovery",
+  },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <HeroSlider slides={slides} />
+  <Services />
+  <About />
+  <Why />
+  <Certificaciones />
+  <Customers />
+  <Cta />
 </Layout>

@@ -1,0 +1,137 @@
+---
+import { Icon } from "astro-icon/components";
+
+const menus = [
+  {
+    name: "Inicio",
+    url: "/",
+  },
+  {
+    name: "Nosotros",
+    url: "/nosotros",
+  },
+  {
+    name: "Certificaciones",
+    url: "/#certificaciones",
+  },
+  {
+    name: "Contactos",
+    url: "/contactos",
+  },
+];
+---
+
+<nav class="fixed z-10 w-full backdrop-blur-sm bg-black/40">
+  <div class="container mx-auto flex justify-between py-3 px-3">
+    <div class="flex items-center lg:block">
+      <a aria-label="logo" href="/">
+        <img
+          src="/images/logo-argon.webp"
+          alt="logo argon"
+          width="55"
+          height="60"
+        />
+      </a>
+    </div>
+    <div class="lg:flex items-center hidden">
+      <!-- <Link /> -->
+      <ul class="flex items-center gap-[3vw]">
+        {
+          menus.map((menu) => (
+            <li class="font-semibold">
+              <a
+                class="hover:text-[#DEF3FF] text-white"
+                href={menu.url}
+                data-navLink
+              >
+                {menu.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="relative z-50 flex items-center lg:hidden">
+      <button id="toggle-btn" aria-label="toggle-btn" class="h-10 w-10">
+        <Icon name="bars3" class="text-white" width="36" height="36" />
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="sidebar">
+  <div class="relative mt-6 flex-1 px-4 sm:px-6">
+    {/* Your content */}
+    <div class="flex justify-between">
+      <a aria-label="logo" href="/">
+        <img
+          src="/images/logo-argon.webp"
+          alt="logo argon"
+          width="55px"
+          height="60px"
+        />
+      </a>
+      <button id="btn-close" aria-label="btn-close" class="closeBtn w-10 h-10">
+        <Icon name="x" />
+      </button>
+    </div>
+    <div class="mt-5">
+      <ul class="ml-5">
+        {
+          menus.map((menu) => (
+            <li class=" font-semibold cursor-pointer mb-3">
+              <a class=" block hover:text-[#EA111A] py-3" href={menu.url}>
+                {menu.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="overlay" class=""></div>
+
+<style>
+  #sidebar {
+    background-color: white;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  #sidebar.active {
+    left: 0;
+  }
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    width: 100vw;
+    height: 100vh;
+    background-color: #293651;
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById("toggle-btn") as HTMLButtonElement;
+  const btnClose = document.getElementById("btn-close") as HTMLButtonElement;
+  const sidebar = document.getElementById("sidebar") as HTMLElement;
+  const overlay = document.getElementById("overlay") as HTMLElement;
+
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("modal-backdrop");
+  });
+
+  btnClose.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("modal-backdrop");
+  });
+</script>

@@ -1,0 +1,170 @@
+---
+import { Icon } from "astro-icon/components";
+import Video from "./Video.astro";
+
+interface Props {
+  slides: {
+    url: string;
+    title: string;
+    subtitle?: string;
+  }[];
+}
+
+const { slides } = Astro.props;
+---
+
+<div class="relative h-screen w-full overflow-hidden">
+  <div class="relative h-full w-full">
+    {
+      slides.map((slide, index) => (
+        <div
+          class={`slide absolute w-full h-full transition-opacity duration-500 ease-in-out ${index === 0 ? " opacity-100" : " opacity-0"}`}
+          data-index={index}
+        >
+          <div class=" relative w-full h-full">
+            <img
+              src={slide.url}
+              alt={slide.title}
+              class="absolute w-full h-full object-cover"
+            />
+            <div class="absolute lg:w-1/2 lg:left-48 lg:text-left top-1/2 transform -translate-y-1/2 text-white p-8 w-full left-0 text-center md:px-4 ">
+              <h1 class=" text-4xl lg:text-6xl font-bold mb-4 transition-transform duration-300 translate-y-0">
+                {slide.title}
+              </h1>
+              <p class=" text-xl transition-transform duration-300 translate-y-0 w-5/6">
+                {slide.subtitle}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="absolute bottom-8 w-full flex justify-center gap-4 z-10">
+    <button
+      id="prevBtn"
+      class="bg-black bg-opacity-20 hover:bg-opacity-50 text-white rounded-full p-4 transition-all duration-300"
+    >
+      <Icon name="arrow-prev" class="h-6 w-6" />
+    </button>
+    <button
+      id="nextBtn"
+      class="bg-black bg-opacity-20 hover:bg-opacity-50 text-white rounded-full p-4 transition-all duration-300"
+    >
+      <Icon name="arrow-next" class="h-6 w-6" />
+    </button>
+  </div>
+
+  <div
+    class="absolute top-1/2 left-1/2 right-0 translate-x-1/2 -translate-y-1/2"
+  >
+    <button
+      id="playButton"
+      class="flex items-center justify-center w-16 h-16 bg-black/50 text-white rounded-full shadow-lg transition transform hover:scale-110"
+    >
+      <Icon name="play" class="h-10 w-10 text-white" />
+    </button>
+  </div>
+  <Video />
+
+  <style>
+    .slide {
+      --slide-transform: translateY(20px);
+    }
+
+    .slide.opacity-0 h1,
+    .slide.opacity-0 p {
+      transform: var(--slide-transform);
+      opacity: 0;
+    }
+
+    .slide.opacity-100 h1,
+    .slide.opacity-100 p {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .slide h1,
+    .slide p {
+      transition:
+        transform 0.5s ease-out,
+        opacity 0.5s ease-out;
+    }
+
+    .slide h1 {
+      transition-delay: 0.2s;
+    }
+
+    .slide p {
+      transition-delay: 0.4s;
+    }
+  </style>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 3;
+
+    function updateSlides(direction: "next" | "prev") {
+      const slides = document.querySelectorAll(".slide");
+      const currentSlideElement = slides[currentSlide];
+
+      // Calculate next slide index
+      if (direction === "next") {
+        currentSlide = (currentSlide + 1) % totalSlides;
+      } else {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      }
+
+      // Hide all slides
+      slides.forEach((slide) => {
+        slide.classList.remove("opacity-100");
+        slide.classList.add("opacity-0");
+      });
+
+      // Show current slide
+      slides[currentSlide].classList.remove("opacity-0");
+      slides[currentSlide].classList.add("opacity-100");
+    }
+
+    // Event listeners
+    document
+      .getElementById("nextBtn")
+      ?.addEventListener("click", () => updateSlides("next"));
+    document
+      .getElementById("prevBtn")
+      ?.addEventListener("click", () => updateSlides("prev"));
+  </script>
+  <script>
+    const playButton = document.getElementById("playButton") as HTMLElement;
+    const closeButton = document.getElementById("closeButton") as HTMLElement;
+    const videoModal = document.getElementById("videoModal") as HTMLElement;
+    const youtubeVideo = document.getElementById(
+      "youtubeVideo"
+    ) as HTMLVideoElement;
+    const videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"; // URL del video con autoplay activado
+
+    // Abrir modal y reproducir video
+    playButton.addEventListener("click", () => {
+      videoModal.classList.remove("opacity-0", "pointer-events-none");
+      videoModal.classList.add("opacity-100");
+      youtubeVideo.src = videoUrl; // Asignar URL al iframe para iniciar la reproducción
+    });
+
+    // Cerrar modal y detener la reproducción del video
+    const closeModal = () => {
+      videoModal.classList.remove("opacity-100");
+      videoModal.classList.add("opacity-0", "pointer-events-none");
+      youtubeVideo.src = ""; // Limpiar el src para detener la reproducción
+    };
+
+    closeButton.addEventListener("click", closeModal);
+
+    // Cerrar modal al hacer clic fuera del contenido
+    videoModal.addEventListener("click", (e) => {
+      if (e.target === videoModal) {
+        closeModal();
+      }
+    });
+  </script>
+</div>

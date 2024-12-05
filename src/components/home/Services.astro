@@ -1,0 +1,125 @@
+---
+import { object } from "astro:schema";
+import { Icon } from "astro-icon/components";
+
+const images = [
+  {
+    src: "./images/almacen.png",
+    alt: "Almacenaje",
+    title: "Almacenaje",
+  },
+  {
+    src: "./images/embalaje.png",
+    alt: "Productos farmaceuticos",
+    title: "Embalaje",
+  },
+  {
+    src: "./images/transporte.png",
+    alt: "Transporte",
+    title: "Transporte y distribución",
+  },
+];
+---
+
+<section class="py-28 bg-[#F0FAFF]">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 container mx-auto">
+    <div>
+      <h4 class="mb-2 text-subtitle font-semibold">Que ofrecemos?</h4>
+      <h2 class="text-5xl text-primary font-bold mb-4">
+        Conectamos la Industria Farmacéutica con el País
+      </h2>
+      <p class="text-paragraph">
+        Ofrecemos servicios especializados en transporte, almacenaje y
+        distribución de productos farmacéuticos, garantizando cumplimiento,
+        seguridad y calidad en cada etapa. Nuestro compromiso es llevar tus
+        productos donde se necesiten, preservando su integridad y cumpliendo con
+        los más altos estándares del sector.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- imagen 1 -->
+      <div
+        class="relative bg-[#2C323C] overflow-hidden shrink-0 snap-start snap-always rounded-xl group"
+      >
+        <div class="w-full h-64 relative overflow-hidden">
+          <img
+            src={`${images[0].src}`}
+            alt={`${images[0].alt}`}
+            class="rounded-xl w-full h-64 object-cover"
+          />
+        </div>
+
+        <div
+          class="absolute bottom-0 translate-y-10 group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50"
+        >
+          {images[0].title}
+          <br />
+          <span class="inline-block w-6 h-6">
+            <Icon name="arrow-long" class="w-6 h-6" />
+          </span>
+        </div>
+
+        <div
+          class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100%"
+        >
+        </div>
+      </div>
+      <!-- imagen 2 -->
+      <div
+        class="relative bg-[#2C323C] overflow-hidden shrink-0 snap-start snap-always rounded-xl group"
+      >
+        <div class="w-full h-full relative overflow-hidden">
+          <img
+            src={`${images[1].src}`}
+            alt={`${images[1].alt}`}
+            width={417}
+            height={626}
+            class="rounded-xl w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="absolute bottom-0 translate-y-10 group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50"
+        >
+          {images[1].title}
+          <br />
+          <span class="inline-block w-6 h-6">
+            <Icon name="arrow-long" class="w-6 h-6" />
+          </span>
+        </div>
+
+        <div
+          class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100%"
+        >
+        </div>
+      </div>
+      <!-- imagen 3 -->
+      <div
+        class="relative col-span-2 bg-[#2C323C] overflow-hidden shrink-0 snap-start snap-always rounded-xl group"
+      >
+        <div class="w-full h-full relative overflow-hidden">
+          <img
+            src={`${images[2].src}`}
+            alt={`${images[2].alt}`}
+            class="rounded-xl w-full object-cover h-64"
+          />
+        </div>
+
+        <div
+          class="absolute bottom-0 translate-y-10 group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50"
+        >
+          {images[2].title}
+          <br />
+          <span class="inline-block w-6 h-6">
+            <Icon name="arrow-long" class="w-6 h-6" />
+          </span>
+        </div>
+
+        <div
+          class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100%"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

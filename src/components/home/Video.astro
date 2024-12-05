@@ -1,0 +1,22 @@
+<div
+  id="videoModal"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+>
+  <div class="bg-white p-4 rounded-lg shadow-lg w-4/5 lg:w-2/5 relative">
+    <button
+      id="closeButton"
+      class="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+    >
+      &times;
+    </button>
+    <div class="aspect-w-16 aspect-h-9">
+      <iframe
+        id="youtubeVideo"
+        src=""
+        class="w-full h-full"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+---
+const certifications = [
+  {
+    title: "bpa",
+    description:
+      "Nuestro sistema de calidad garantiza la conservación, eficacia y seguridad de nuestros productos durante su almacenamiento, cumpliendo con los más altos estándares. Contamos con certificaciones emitidas por la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID), que incluyen la certificación de Buenas Prácticas de Almacenamiento (BPA).",
+    imagen: "/images/bpa.png",
+  },
+  {
+    title: "bpdt",
+    description:
+      "Nuestro sistema de distribución y transporte asegura que la calidad del producto se mantenga en cada etapa de la cadena de suministro. Contamos con una flota de vehículos certificada en Buenas Prácticas de Distribución y Transporte (BPDT), equipada para cumplir con las condiciones requeridas por la normativa sanitaria vigente.",
+    imagen: "/images/bpdt.png",
+  },
+];
+---
+
+<section id="certificaciones" class="py-28 max-w-6xl mx-auto">
+  <div class="mb-6">
+    <h2 class="text-5xl font-bold text-center text-[#04334D]">
+      Nuestras Certificaciones
+    </h2>
+  </div>
+  <div class="flex flex-col space-y-10">
+    {
+      certifications.map((item) => (
+        <div class="flex gap-16 ">
+          <div class=" content-center w-5/6 text-[#075073]">
+            {item.description}
+          </div>
+          <div class=" w-1/6">
+            <img src={`${item.imagen}`} class=" h-32 w-32" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
