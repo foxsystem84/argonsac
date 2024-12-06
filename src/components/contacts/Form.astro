@@ -10,7 +10,7 @@ import { Icon } from "astro-icon/components";
           <h2 class="text-2xl lg:text-5xl font-bold font-exo text-primary mb-4">
             Contáctenos
           </h2>
-          <p class="text-paragraph">
+          <p class="text-paragraph text-xl leading-relaxed">
             No dude en comunicarse con nosotros. Nuestro equipo de atención al
             cliente está a su disposición para brindarle asistencia con
             cualquier consulta general que pueda tener.
@@ -28,7 +28,7 @@ import { Icon } from "astro-icon/components";
               <input
                 type="hidden"
                 name="access_key"
-                value="056aa9d0-6c05-4d08-976e-26ec7d8e4839"
+                value={import.meta.env.ASTRO_SITE}
               />
               <input
                 type="hidden"
@@ -145,7 +145,7 @@ import { Icon } from "astro-icon/components";
       </div>
       <div class="mt-7 text-[#075073]">
         <div class="mb-5">
-          <h6 class="text-lg font-semibold border-b-[1px] pb-1 mb-2">
+          <h6 class="text-xl font-semibold border-b-[1px] pb-1 mb-2">
             Teléfonos
           </h6>
           <div class="flex items-center">
@@ -158,14 +158,14 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
         <div class="mb-5">
-          <h6 class="text-lg font-semibold border-b-[1px] pb-1 mb-2">Email</h6>
+          <h6 class="text-xl font-semibold border-b-[1px] pb-1 mb-2">Email</h6>
           <div class="flex items-center">
             <span class="block w-5 h-5 mr-4"><Icon name="envelope" /></span>
             <span class="block">operaciones@argonsac.com</span>
           </div>
         </div>
         <div class="mb-5">
-          <h6 class="text-lg font-semibold border-b-[1px] pb-1 mb-2">
+          <h6 class="text-xl font-semibold border-b-[1px] pb-1 mb-2">
             Dirección
           </h6>
           <div class="flex items-center">
@@ -177,7 +177,7 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
         <div class="mb-5">
-          <h6 class="text-lg font-semibold border-b-[1px] pb-1 mb-2">
+          <h6 class="text-xl font-semibold border-b-[1px] pb-1 mb-2">
             Horario de atención
           </h6>
           <div class="flex items-center">

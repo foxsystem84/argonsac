@@ -71,7 +71,7 @@ const menus = [
         />
       </a>
       <button id="btn-close" aria-label="btn-close" class="closeBtn w-10 h-10">
-        <Icon name="x" />
+        <Icon name="x" class="text-white w-8 h-8" />
       </button>
     </div>
     <div class="mt-5">
@@ -79,7 +79,10 @@ const menus = [
         {
           menus.map((menu) => (
             <li class=" font-semibold cursor-pointer mb-3">
-              <a class=" block hover:text-[#EA111A] py-3" href={menu.url}>
+              <a
+                class=" block hover:text-[#EA111A] py-3 text-white"
+                href={menu.url}
+              >
                 {menu.name}
               </a>
             </li>
@@ -93,11 +96,11 @@ const menus = [
 
 <style>
   #sidebar {
-    background-color: white;
+    background-color: #162129;
     position: fixed;
-    width: 250px;
+    width: 350px;
     height: 100%;
-    left: -250px;
+    left: -350px;
     top: 0;
     transition: all 0.3s ease-in-out;
     z-index: 100;
@@ -113,7 +116,7 @@ const menus = [
     z-index: 40;
     width: 100vw;
     height: 100vh;
-    background-color: #293651;
+    background-color: #162129;
     opacity: 0.5;
     transition: all 0.5s ease-in-out;
   }

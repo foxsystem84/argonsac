@@ -3,9 +3,13 @@ import { Icon } from "astro-icon/components";
 import Copyright from "./Copyright.astro";
 ---
 
-<footer class="pt-28 bg-[url('/images/footer-bg.jpg')] bg-cover bg-center">
+<footer
+  class="pt-28 bg-[url('/images/footer-bg.jpg')] bg-cover bg-center px-4 md:px-0"
+>
   <div class="container mx-auto">
-    <div class="grid grid-cols-4 gap-10 text-white">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-white"
+    >
       <div>
         <img src="/images/logo-argon.webp" />
       </div>
@@ -24,10 +28,10 @@ import Copyright from "./Copyright.astro";
       <div>
         <h5 class="font-bold mb-4">Enlaces rápidos</h5>
         <ul class="text-[#B2BDC6] space-y-4">
-          <li>Inicio</li>
-          <li>Nosotros</li>
-          <li>Farmacovigilancia</li>
-          <li>Contactos</li>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="#">Farmacovigilancia</a></li>
+          <li><a href="/contactos">Contactos</a></li>
         </ul>
       </div>
       <div>

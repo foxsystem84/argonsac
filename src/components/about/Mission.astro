@@ -2,26 +2,28 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="py-28 bg-[url('./images/about-pb2.jpg')]">
+<section class="py-28 bg-[url('./images/about-pb2.jpg')] px-4 md:px-0">
   <div class="container mx-auto">
-    <div class="w-1/2">
-      <h5 class="text-[#96A1AA] font-semibold mb-4">
+    <div class="w-full md:w-1/2 mb-10 lg:mb-12">
+      <h5 class="text-[#96A1AA] text-lg md:text-2xl font-semibold mb-4">
         Nuestros valores y misiones
       </h5>
-      <h2 class="text-5xl text-white mb-10">
+      <h2 class="text-2xl font-bold md:text-3xl lg:text-5xl text-white">
         Construyendo relaciones de confianza con nuestros clientes y
         proveedores.
       </h2>
     </div>
-    <div class="grid grid-cols-2 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
       <div>
         <div class="text-[#96A1AA] mb-4 space-x-2">
           <Icon
             name="mission"
             class="inline-block h-8 w-8 text-[#C80D17]"
-          /><span class="text-2xl text-white align-middle">Misión</span>
+          /><span class="text-xl md:text-2xl text-white align-middle"
+            >Misión</span
+          >
         </div>
-        <p class="text-[#96A1AA]">
+        <p class="text-[#96A1AA] text-lg md:text-xl leading-relaxed">
           Somos una empresa dedicada a brindar soluciones logísticas en el
           sector farmacéutico, enfocándonos en ofrecer servicios de
           almacenamiento y transporte de productos farmacéuticos. Nos
@@ -34,9 +36,11 @@ import { Icon } from "astro-icon/components";
           <Icon
             name="vision"
             class="inline-block h-8 w-8 text-[#C80D17]"
-          /><span class="text-2xl text-white align-middle">Visión</span>
+          /><span class="text-xl md:text-2xl text-white align-middle"
+            >Visión</span
+          >
         </div>
-        <p class="text-[#96A1AA]">
+        <p class="text-[#96A1AA] text-lg md:text-xl leading-relaxed">
           Convertirnos en una empresa reconocida en el sector farmacéutico por
           nuestra excelencia en soluciones logísticas, estableciendo relaciones
           duraderas con nuestros clientes y contribuyendo al bienestar de la
