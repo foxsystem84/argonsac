@@ -2,6 +2,8 @@
 import Seo from "../components/Seo.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import Cta from "../components/Cta.astro";
+import Whatsapp from "../components/Whatsapp.astro";
 
 const { title, description, image, frontmatter, robots } = Astro.props;
 ---
@@ -25,6 +27,8 @@ const { title, description, image, frontmatter, robots } = Astro.props;
   <body class="font-rubik">
     <Navbar />
     <slot />
+    <Whatsapp />
+    <Cta />
     <Footer />
   </body>
 </html>

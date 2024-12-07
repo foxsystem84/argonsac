@@ -1,11 +1,13 @@
 ---
+import { gsap } from "gsap";
+
 const images = [
   {
-    src: "./images/about1.png",
+    src: "./images/about1.webp",
     alt: "nosotros",
   },
   {
-    src: "./images/about2.png",
+    src: "./images/transporte.webp",
     alt: "about",
   },
 ];
@@ -48,3 +50,10 @@ const images = [
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+
+  // GSAP Animations
+  gsap.from("h2", { duration: 1, y: -50, opacity: 0 });
+</script>

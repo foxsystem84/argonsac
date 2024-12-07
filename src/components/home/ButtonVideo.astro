@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+import VideoModal from "./VideoModal.astro";
+---
+
+<button
+  id="playButton"
+  class="flex items-center z-50 justify-center w-24 h-24 bg-black/50 text-white rounded-full shadow-lg"
+>
+  <Icon name="play" class="h-12 w-12 fill-white" />
+</button>
+
+<script>
+  const playButton = document.getElementById("playButton") as HTMLElement;
+  const closeButton = document.getElementById("closeButton") as HTMLElement;
+  const videoModal = document.getElementById("videoModal") as HTMLElement;
+  const youtubeVideo = document.getElementById(
+    "youtubeVideo"
+  ) as HTMLVideoElement;
+  const videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"; // URL del video con autoplay activado
+
+  // Abrir modal y reproducir video
+  playButton.addEventListener("click", () => {
+    videoModal.classList.remove("opacity-0", "pointer-events-none");
+    videoModal.classList.add("opacity-100");
+    youtubeVideo.src = videoUrl; // Asignar URL al iframe para iniciar la reproducción
+  });
+
+  // Cerrar modal y detener la reproducción del video
+  const closeModal = () => {
+    videoModal.classList.remove("opacity-100");
+    videoModal.classList.add("opacity-0", "pointer-events-none");
+    youtubeVideo.src = ""; // Limpiar el src para detener la reproducción
+  };
+
+  closeButton.addEventListener("click", closeModal);
+
+  // Cerrar modal al hacer clic fuera del contenido
+  videoModal.addEventListener("click", (e) => {
+    if (e.target === videoModal) {
+      closeModal();
+    }
+  });
+</script>

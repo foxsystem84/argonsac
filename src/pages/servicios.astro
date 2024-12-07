@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FlipCard from "../components/services/FlipCard.astro";
+import Header from "../components/Header.astro";
+
+const headers = [
+  {
+    title: "Servicios",
+    src: "bg-[url(/images/bg-service.webp)]",
+  },
+];
+
+const cards = [
+  {
+    frontImage: "bg-[url(/images/s-embalaje.webp)]",
+    backTitle: "Recepción de la mercadería",
+    backDescription:
+      "Procedente de aduanas, distribuidoras y laboratorios farmacéuticos",
+  },
+  {
+    frontImage: "bg-[url(/images/s-almacenaje.webp)]",
+    backTitle: "Almacenaje",
+    backDescription:
+      "Nuestro almacén cuenta con áreas con diferentes temperaturas. Monitoreo y control de temperatura",
+  },
+  {
+    frontImage: "bg-[url(/images/s-calidad.webp)]",
+    backTitle: "Servicios del área de calidad",
+    backDescription:
+      "Muestreo, revisión y reporte del estado de la mercadería que ingresa al almacén en estado de cuarentena.",
+  },
+  {
+    frontImage: "bg-[url(/images/s-seguridad.webp)]",
+    backTitle: "Seguridad",
+    backDescription:
+      "Videovigilancia dentro la empresa, contamos con sistemas de alarma electrónicas para una respuesta inmediata",
+  },
+  {
+    frontImage: "bg-[url(/images/s-transporte.webp)]",
+    backTitle: "Transporte",
+    backDescription:
+      "Cubrimos Lima Metropolitana y nuestros vehículos cuentan con monitoreo GPS en tiempo real.",
+  },
+];
+---
+
+<Layout title="Servicios">
+  <Header headers={headers} />
+  <main class="py-12 px-4 md:px-0 bg-[#F0FAFF]">
+    <div class="container mx-auto">
+      <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">
+        Nuestros servicios
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          cards.map((card) => (
+            <FlipCard
+              frontImage={card.frontImage}
+              backTitle={card.backTitle}
+              backDescription={card.backDescription}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>

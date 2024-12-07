@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import Video from "./Video.astro";
+import VideoModal from "./VideoModal.astro";
+import ButtonVideo from "./ButtonVideo.astro";
 
 interface Props {
   slides: {
@@ -60,18 +61,14 @@ const { slides } = Astro.props;
     class="absolute top-1/2 left-1/2 right-0 translate-x-1/2 -translate-y-1/2"
   >
     <div class="relative hidden md:flex">
-      <button
-        id="playButton"
-        class="flex items-center z-50 justify-center w-20 h-20 bg-black/50 text-white rounded-full shadow-lg"
-      >
-        <Icon name="play" class="h-8 w-8 fill-white" />
-      </button>
+      <ButtonVideo />
       <span
-        class="animate-ping absolute top-0 h-20 w-20 rounded-full bg-black/50"
+        class="animate-ping absolute top-0 h-24 w-24 rounded-full bg-black/50"
       ></span>
     </div>
   </div>
-  <Video />
+
+  <VideoModal />
 
   <style>
     .slide {
@@ -132,6 +129,8 @@ const { slides } = Astro.props;
       slides[currentSlide].classList.add("opacity-100");
     }
 
+    setInterval(() => updateSlides("next"), 5000);
+
     // Event listeners
     document
       .getElementById("nextBtn")
@@ -139,38 +138,5 @@ const { slides } = Astro.props;
     document
       .getElementById("prevBtn")
       ?.addEventListener("click", () => updateSlides("prev"));
-  </script>
-
-  <script>
-    const playButton = document.getElementById("playButton") as HTMLElement;
-    const closeButton = document.getElementById("closeButton") as HTMLElement;
-    const videoModal = document.getElementById("videoModal") as HTMLElement;
-    const youtubeVideo = document.getElementById(
-      "youtubeVideo"
-    ) as HTMLVideoElement;
-    const videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"; // URL del video con autoplay activado
-
-    // Abrir modal y reproducir video
-    playButton.addEventListener("click", () => {
-      videoModal.classList.remove("opacity-0", "pointer-events-none");
-      videoModal.classList.add("opacity-100");
-      youtubeVideo.src = videoUrl; // Asignar URL al iframe para iniciar la reproducción
-    });
-
-    // Cerrar modal y detener la reproducción del video
-    const closeModal = () => {
-      videoModal.classList.remove("opacity-100");
-      videoModal.classList.add("opacity-0", "pointer-events-none");
-      youtubeVideo.src = ""; // Limpiar el src para detener la reproducción
-    };
-
-    closeButton.addEventListener("click", closeModal);
-
-    // Cerrar modal al hacer clic fuera del contenido
-    videoModal.addEventListener("click", (e) => {
-      if (e.target === videoModal) {
-        closeModal();
-      }
-    });
   </script>
 </div>

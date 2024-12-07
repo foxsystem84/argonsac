@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+import VideoModal from "../home/VideoModal.astro";
+import ButtonVideo from "../home/ButtonVideo.astro";
+---
+
+<section class="py-28 container mx-auto mb-4 md:mb-0">
+  <div class="flex justify-center items-center relative">
+    <img src="/images/bg-video.webp" class="rounded-2xl" alt="" />
+
+    <div class="absolute hover:bg-black rounded-full ease-in-out duration-300">
+      <ButtonVideo />
+    </div>
+  </div>
+  <VideoModal />
+</section>
