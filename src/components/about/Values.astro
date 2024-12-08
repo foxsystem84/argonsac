@@ -1,27 +1,28 @@
 ---
+import FlipCard from "./FlipCard.astro";
 const values = [
   {
-    id: "1",
-    title: "Integridad",
-    description:
+    image: "integrity",
+    backTitle: "Integridad",
+    backDescription:
       "Actuamos con transparencia y honestidad en todas nuestras interacciones.",
   },
   {
-    id: "2",
-    title: "Profesionalismo",
-    description:
+    image: "professional",
+    backTitle: "Profesionalismo",
+    backDescription:
       "Mantenemos altos estándares en el servicio al cliente y la calidad de nuestros servicios.",
   },
   {
-    id: "3",
-    title: "Perseverancia",
-    description:
+    image: "perseverance",
+    backTitle: "Perseverancia",
+    backDescription:
       "Nos esforzamos continuamente por mejorar y superar los desafíos.",
   },
   {
-    id: "4",
-    title: "Proactividad",
-    description:
+    image: "proactivity",
+    backTitle: "Proactividad",
+    backDescription:
       "Anticipamos las necesidades de nuestros clientes y buscamos soluciones efectivas.",
   },
 ];
@@ -29,7 +30,7 @@ const values = [
 
 <section class="py-28 bg-[#F0FAFF] px-4 md:px-0">
   <div class="container mx-auto">
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <div class="space-y-16">
       <div>
         <h2
           class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 text-primary"
@@ -42,17 +43,14 @@ const values = [
           situaciones diversas.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {
-          values.map((value) => (
-            <div class=" p-10 shadow-2xl rounded-xl bg-white">
-              <h5 class=" text-xl md:text-2xl font-bold text-primary mb-4">
-                {value.title}
-              </h5>
-              <p class=" text-paragraph text-lg md:text-xl leading-normal md:leading-relaxed">
-                {value.description}
-              </p>
-            </div>
+          values.map((card) => (
+            <FlipCard
+              image={card.image}
+              backTitle={card.backTitle}
+              backDescription={card.backDescription}
+            />
           ))
         }
       </div>

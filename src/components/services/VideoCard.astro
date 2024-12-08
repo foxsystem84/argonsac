@@ -1,0 +1,80 @@
+---
+interface Props {
+  videoUrl: string;
+  title?: string;
+  description?: string;
+}
+
+const { videoUrl, title, description } = Astro.props;
+---
+
+<div
+  class="video-container container w-full max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-lg mb-8"
+>
+  <div class="relative aspect-[16/9]">
+    <video
+      class="w-full h-full object-cover"
+      src={videoUrl}
+      loop
+      muted
+      playsinline
+      preload="metadata"
+    >
+      <track kind="captions" />
+    </video>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function handleIntersection(entries: IntersectionObserverEntry[]) {
+    entries.forEach((entry) => {
+      const video = entry.target as HTMLVideoElement;
+      if (entry.isIntersecting) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  // Initialize intersection observer for all videos
+  const videos = document.querySelectorAll(".video-container video");
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.6,
+  });
+
+  videos.forEach((video) => {
+    observer.observe(video);
+  });
+
+  // GSAP Animations
+  const videoContainers = document.querySelectorAll(".video-container");
+  videoContainers.forEach((container, index) => {
+    gsap.fromTo(
+      container,
+      {
+        opacity: 0,
+        y: 100,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: container,
+          start: "top bottom-=100",
+          end: "bottom center",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  });
+</script>

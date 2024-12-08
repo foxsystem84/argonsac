@@ -1,0 +1,126 @@
+---
+import { Icon } from "astro-icon/components";
+interface Props {
+  image: string;
+  frontImage?: string;
+  backTitle: string;
+  backDescription: string;
+}
+
+const { image, frontImage, backTitle, backDescription } = Astro.props;
+---
+
+<!-- <div class="">
+  <div class="flip-card w-auto md:w-[500px] h-[600px] perspective-1000">
+    <div
+      class="relative w-full h-full flex flex-col flex-wrap justify-between flex-1 transition-transform duration-500 transform-style-3d flip-card-inner"
+    >
+    
+      <div
+        class="relative rounded-3xl bg-[#555555] w-full h-full backface-hidden"
+      >
+        <div class="w-full h-full rounded-3xl shadow-lg p-7 text-white">
+          {backTitle}
+        </div>
+        <div class="absolute top-10 text-center z-50 font-bold text-8xl">1</div>
+      </div>
+     
+      <div
+        class="absolute overflow-hidden w-full h-full bg-white rounded-2xl shadow-lg transform rotate-y-180 backface-hidden"
+      >
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">{backTitle}</h3>
+          <p class="text-gray-600 text-xl">{backDescription}</p>
+        </div>
+        <div
+          class={`${frontImage} absolute bottom-0 rounded-2xl bg-cover bg-center h-3/5 w-full`}
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="flip-card w-auto md:w-[370px] h-[400px] perspective-1000">
+  <div
+    class="relative w-full h-full transition-transform duration-500 transform-style-3d"
+  >
+    <!-- Front side -->
+    <div
+      class="front absolute w-full h-full bg-white rounded-lg shadow-lg backface-hidden"
+    >
+      <div class="p-6 h-full flex flex-col">
+        <!-- <h3 class="text-xl font-bold text-gray-800">{backTitle}</h3> -->
+        <div class="flex-grow flex items-center justify-center">
+          <span class="text-9xl font-semibold text-[#0090D2]"
+            ><Icon name={`${image}`} /></span
+          >
+        </div>
+        <h3 class="text-xl text-center mb-20 font-bold text-gray-800">
+          {backTitle}
+        </h3>
+        <div class="flex justify-end">
+          <div class="relative flex flex-col items-center justify-center">
+            <Icon name="arrow-long" class="w-6 h-6 text-white font-bold z-50" />
+            <span class="absolute bottom bg-[#04334D] rounded-full w-12 h-12"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back side -->
+    <div
+      class="back absolute w-full h-full bg-[#04334D] text-white rounded-lg shadow-lg backface-hidden rotate-y-180"
+    >
+      <div
+        class="p-6 h-full flex flex-col items-center justify-center text-center"
+      >
+        <h3 class="text-2xl font-bold mb-4">{backTitle}</h3>
+        <p class="text-xl text-gray-100">{backDescription}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+</style> -->
+<style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card:hover .relative {
+    transform: rotateY(180deg);
+  }
+</style>
