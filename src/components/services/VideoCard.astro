@@ -11,7 +11,7 @@ const { videoUrl, title, description } = Astro.props;
 <div
   class="video-container container w-full max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-lg mb-8"
 >
-  <div class="relative aspect-[16/9]">
+  <div class="relative aspect-[9/16] md:aspect-[16/9]">
     <video
       class="w-full h-full object-cover"
       src={videoUrl}
@@ -45,7 +45,7 @@ const { videoUrl, title, description } = Astro.props;
   // Initialize intersection observer for all videos
   const videos = document.querySelectorAll(".video-container video");
   const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.6,
+    threshold: 1,
   });
 
   videos.forEach((video) => {

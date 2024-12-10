@@ -1,44 +1,53 @@
 ---
 const certifications = [
   {
-    title: "bpa",
+    title: "Buenas prácticas de almacenamiento  ",
     description:
-      "Nuestro sistema de calidad garantiza la conservación, eficacia y seguridad de nuestros productos durante su almacenamiento, cumpliendo con los más altos estándares. Contamos con certificaciones emitidas por la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID), que incluyen la certificación de Buenas Prácticas de Almacenamiento (BPA).",
+      "Contamos con certificaciones emitidas por la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID), que incluyen la certificación de Buenas Prácticas de Almacenamiento (BPA).",
     imagen: "/images/bpa.webp",
   },
   {
-    title: "bpdt",
+    title: "Buenas prácticas de distribución y transporte ",
     description:
-      "Nuestro sistema de distribución y transporte asegura que la calidad del producto se mantenga en cada etapa de la cadena de suministro. Contamos con una flota de vehículos certificada en Buenas Prácticas de Distribución y Transporte (BPDT), equipada para cumplir con las condiciones requeridas por la normativa sanitaria vigente.",
+      "Contamos con una flota de vehículos certificada en Buenas Prácticas de Distribución y Transporte (BPDT), equipada para cumplir con las condiciones requeridas por la normativa sanitaria vigente.",
     imagen: "/images/bpdt.webp",
   },
 ];
 ---
 
-<section id="certificaciones" class="py-28 container mx-auto px-4">
-  <div class="mb-6">
+<section id="certificaciones" class="py-28 bg-[#DEF3FF]">
+  <div class="container mx-auto px-4" data-gsap="certifications">
     <h2
       class="text-2xl md:text-3xl lg:text-5xl font-bold text-center text-[#04334D]"
     >
       Nuestras Certificaciones
     </h2>
-  </div>
-  <div class="mx-auto lg:w-2/3 space-y-8">
-    {
-      certifications.map((item) => (
-        <div class="flex flex-col items-center lg:flex-row space-y-4 lg:space-y-0  space-x-0 lg:space-x-8 ">
-          <p class="text-[#075073] text-base md:text-xl leading-relaxed">
-            {item.description}
-          </p>
 
-          <img
-            src={`${item.imagen}`}
-            class=" h-32 w-32"
-            width="150"
-            height="150"
-          />
-        </div>
-      ))
-    }
+    <div class="space-y-8 mt-28 mx-auto max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {
+          certifications.map((item) => (
+            <div class="relative rounded-2xl shadow-[0_3px_35px_0px_rgba(4,51,77,0.14)] px-8 py-12 bg-slate-50  ">
+              <div class="absolute right-0 left-0 -top-16  flex justify-center items-center  ">
+                <img
+                  src={`${item.imagen}`}
+                  class=" h-32 w-32"
+                  width="150"
+                  height="150"
+                />
+              </div>
+              <div class=" pt-16">
+                <h2 class=" text-primary text-2xl font-bold mb-4">
+                  {item.title}
+                </h2>
+                <p class="text-[#075073] text-base md:text-xl leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>

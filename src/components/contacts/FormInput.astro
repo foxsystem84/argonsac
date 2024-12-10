@@ -1,0 +1,45 @@
+---
+type HTMLInputTypeAttribute =
+  | "number"
+  | "search"
+  | "button"
+  | "time"
+  | "image"
+  | "text"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "month"
+  | "password"
+  | "radio"
+  | "tel"
+  | "range";
+
+interface Props {
+  label: string;
+  name: string;
+  type?: HTMLInputTypeAttribute;
+  required?: boolean;
+  pattern?: string;
+}
+
+const { label, name, type = "text", required = false, pattern } = Astro.props;
+---
+
+<div class="space-y-2">
+  <label for={name} class="block text-sm font-medium text-gray-700">
+    {label}
+  </label>
+  <input
+    type={type}
+    id={name}
+    name={name}
+    required={required}
+    pattern={pattern}
+    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+</div>

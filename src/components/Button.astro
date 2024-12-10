@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  bg: string;
+  color: string;
+  text: string;
+}
+
+const { href, bg, color, text } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`text-lg py-2 px-4 rounded-lg inline-block ${color.startsWith("#") ? `text-[${color}]` : `text-${color}`} bg-[${bg}]`}
+  >{text}</a
+>

@@ -1,18 +1,29 @@
 ---
-
+import Button from "./Button.astro";
 ---
 
 <section class="pt-28 bg-[#1C2329]">
   <!-- <div class=" before:bg-[#1C2329] before:absolute before:top-0"></div> -->
   <div class="container mx-auto pb-28 border-b border-[#3C4247]">
-    <div class="text-center mx-auto w-5/6 lg:w-3/6">
-      <h3 class="text-2xl md:text-4xl font-bold text-white mb-4">
+    <div class="text-center mx-auto w-5/6 lg:w-3/6 space-y-8">
+      <h3 class="text-2xl md:text-4xl font-bold text-white">
         ¡Aprovecha nuestro primer mes de almacenamiento gratuito!
       </h3>
       <p class="text-xl text-[#B2BDC6]">
         Entrega sin esfuerzo con nuestras soluciones de transporte y
         distribución
       </p>
+      <!-- <a
+        href="/contactos"
+        class="bg-[#DEF3FF] text-lg py-2 px-4 rounded-lg inline-block"
+        >Envianos un mensaje</a
+      > -->
+      <Button
+        href="/contactos"
+        bg="#DEF3FF"
+        color="#333333"
+        text="Envianos un mensaje"
+      />
     </div>
   </div>
 </section>

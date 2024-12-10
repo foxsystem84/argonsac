@@ -1,6 +1,7 @@
 ---
 import { object } from "astro:schema";
 import { Icon } from "astro-icon/components";
+import Button from "../Button.astro";
 
 const images = [
   {
@@ -22,20 +23,31 @@ const images = [
 ---
 
 <section class="py-28 bg-[#F0FAFF] px-4 md:px-0">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 container mx-auto">
-    <div>
-      <h4 class="mb-2 text-subtitle text-xl font-semibold">¿Qué ofrecemos?</h4>
-      <h2 class="text-2xl md:text-3xl lg:text-5xl text-primary font-bold mb-4">
-        Conectamos a la industria farmacéutica con el país
-      </h2>
-      <p class="text-paragraph text-lg md:text-xl leading-relaxed">
-        Ofrecemos servicios especializados en transporte, almacenaje y
-        distribución de productos farmacéuticos, garantizando cumplimiento,
-        seguridad y calidad en cada etapa. Nuestro compromiso es llevar tus
-        productos donde se necesiten, preservando su integridad y cumpliendo con
-        los más altos estándares del sector.
-      </p>
+  <article
+    class="grid grid-cols-1 lg:grid-cols-2 gap-20 container mx-auto"
+    data-gsap="services"
+  >
+    <div class="space-y-10">
+      <div>
+        <h4 class="mb-2 text-subtitle text-xl font-semibold">
+          ¿Qué ofrecemos?
+        </h4>
+        <h2
+          class="text-2xl md:text-3xl lg:text-5xl text-primary font-bold mb-4"
+        >
+          Conectamos a la industria farmacéutica con el país
+        </h2>
+        <p class="text-paragraph text-lg md:text-xl leading-relaxed">
+          Ofrecemos servicios especializados en transporte, almacenaje y
+          distribución de productos farmacéuticos, garantizando cumplimiento,
+          seguridad y calidad en cada etapa. Nuestro compromiso es llevar tus
+          productos donde se necesiten, preservando su integridad y cumpliendo
+          con los más altos estándares del sector.
+        </p>
+      </div>
+      <Button href="/servicios" bg="#0090D2" color="white" text="Ver más" />
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- imagen 1 -->
       <div
@@ -121,5 +133,5 @@ const images = [
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </section>
