@@ -45,99 +45,69 @@ const images = [
           con los más altos estándares del sector.
         </p>
       </div>
-      <Button
-        href="/servicios"
-        bg="#0090D2"
-        hover="#00618C"
-        color="white"
-        text="Ver más"
-      />
+      <Button href="/servicios" bg="#0090D2" color="white" text="Ver más" />
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- imagen 1 -->
-      <div
-        class="relative bg-[#2C323C] overflow-hidden shrink-0 snap-start snap-always rounded-xl group"
-      >
-        <div class="w-full h-64 relative overflow-hidden">
-          <img
-            src={`${images[0].src}`}
-            alt={`${images[0].alt}`}
-            class="rounded-xl w-full h-64 object-cover"
-          />
-        </div>
-
+    <div>
+      <div class="project-left">
         <div
-          class="absolute bottom-0 translate-y-10 group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50"
+          class="scrollbar-hide flex w-full snap-x snap-mandatory scroll-px-10 gap-6 lg:gap-10 overflow-x-scroll scroll-smooth"
         >
-          {images[0].title}
-          <br />
-          <span class="inline-block w-6 h-6">
-            <Icon name="arrow-long" class="w-6 h-6" />
-          </span>
-        </div>
+          {
+            images.map((service) => (
+              <div class=" relative bg-[#2C323C] overflow-hidden   shrink-0 snap-start snap-always rounded-xl group">
+                <div class=" w-full h-full relative   overflow-hidden">
+                  <img
+                    src={`${service.src}`}
+                    alt={`${service.title}`}
+                    width="400px"
+                    height="500px"
+                    class=" rounded-xl w-[400px] h-[500px] object-cover "
+                  />
+                </div>
 
-        <div
-          class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100%"
-        >
-        </div>
-      </div>
-      <!-- imagen 2 -->
-      <div
-        class="relative bg-[#2C323C] overflow-hidden shrink-0 snap-start snap-always rounded-xl group"
-      >
-        <div class="w-full h-full relative overflow-hidden">
-          <img
-            src={`${images[1].src}`}
-            alt={`${images[1].alt}`}
-            width={417}
-            height={626}
-            class="rounded-xl w-full h-full object-cover"
-          />
-        </div>
+                <div class="absolute bottom-0 translate-y-10  group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50 ">
+                  {service.title}
+                  <br />
+                  <span class="inline-block w-6 h-6">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                      />
+                    </svg>
+                  </span>
+                </div>
 
-        <div
-          class="absolute bottom-0 translate-y-10 group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50"
-        >
-          {images[1].title}
-          <br />
-          <span class="inline-block w-6 h-6">
-            <Icon name="arrow-long" class="w-6 h-6" />
-          </span>
-        </div>
-
-        <div
-          class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100%"
-        >
-        </div>
-      </div>
-      <!-- imagen 3 -->
-      <div
-        class="relative col-span-2 bg-[#2C323C] overflow-hidden shrink-0 snap-start snap-always rounded-xl group"
-      >
-        <div class="w-full h-full relative overflow-hidden">
-          <img
-            src={`${images[2].src}`}
-            alt={`${images[2].alt}`}
-            class="rounded-xl w-full object-cover h-64"
-          />
-        </div>
-
-        <div
-          class="absolute bottom-0 translate-y-10 group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50"
-        >
-          {images[2].title}
-          <br />
-          <span class="inline-block w-6 h-6">
-            <Icon name="arrow-long" class="w-6 h-6" />
-          </span>
-        </div>
-
-        <div
-          class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white w-full h-full bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100%"
-        >
+                <div class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white  w-full h-full  bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100% " />
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
   </article>
 </section>
+<style>
+  .project-left {
+    padding-left: 0;
+  }
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
