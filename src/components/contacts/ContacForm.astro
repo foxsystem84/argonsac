@@ -2,9 +2,6 @@
 import FormInput from "./FormInput.astro";
 import { Icon } from "astro-icon/components";
 import MathCaptcha from "./MathCaptcha.astro";
-
-// Get your access key from https://web3forms.com/
-const WEB3FORMS_ACCESS_KEY = "056aa9d0-6c05-4d08-976e-26ec7d8e4839";
 ---
 
 <main class="bg-[#F3F6FB] py-28 mt-0 space-y-20 px-4 md:px-0">
@@ -88,7 +85,11 @@ const WEB3FORMS_ACCESS_KEY = "056aa9d0-6c05-4d08-976e-26ec7d8e4839";
           class="space-y-4"
           id="contact-form"
         >
-          <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+          <input
+            type="hidden"
+            name="access_key"
+            value={import.meta.env.ASTRO_SITE}
+          />
           <input
             type="hidden"
             name="subject"
@@ -126,7 +127,7 @@ const WEB3FORMS_ACCESS_KEY = "056aa9d0-6c05-4d08-976e-26ec7d8e4839";
           </div>
           <button
             type="submit"
-            class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+            class="bg-[#0090D2] text-white py-2 px-4 rounded-md hover:bg-[#00618C] transition-colors"
           >
             Enviar mensaje
           </button>

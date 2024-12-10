@@ -2,15 +2,16 @@
 interface Props {
   href: string;
   bg: string;
+  hover?: string;
   color: string;
   text: string;
 }
 
-const { href, bg, color, text } = Astro.props;
+const { href, bg, hover, color, text } = Astro.props;
 ---
 
 <a
   href={href}
-  class={`text-lg py-2 px-4 rounded-lg inline-block ${color.startsWith("#") ? `text-[${color}]` : `text-${color}`} bg-[${bg}]`}
+  class={`text-lg py-2 px-4 rounded-lg inline-block ${color.startsWith("#") ? `text-[${color}]` : `text-${color}`} bg-[${bg}] hover:bg-[${hover}] transition-colors`}
   >{text}</a
 >
