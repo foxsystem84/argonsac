@@ -52,7 +52,7 @@ const videos = [
     id: 4,
     videoUrl: "/videos/seguridad.mp4",
     category: "Seguridad",
-    description: "Seguridad",
+    description: "",
     details: [
       "Selección cuidadosa de nuestro personal.",
       "Persona responsable que monitorea el perfecto funcionamiento de la seguridad.",
@@ -91,7 +91,7 @@ const videos = [
                   video.details.map(detail =>(
                     <li class=" text-lg flex  items-start">
                       <span class="block w-5 h-5 mr-4">
-                      <Icon name="arrow-next" class="w-5 h-5"/> </span>
+                      <Icon name="check" class="w-5 h-5 text-subtitle"/> </span>
                       <span class="block text-paragraph">{detail}</span>
                       </li>
                   ))
