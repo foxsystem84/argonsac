@@ -29,7 +29,7 @@ const { slides } = Astro.props;
               class=" absolute  inset-0 opacity-0 transition-opacity duration-1000 "
               style={`background-image: url(${item.url}); background-size: cover; background-position: center;`}
             >
-              <div class="slide absolute  inset-0 flex flex-col justify-center items-star pl-0 md:pl-16  xl:pl-24 2xl:pl-48 text-white w-full md:w-1/2 space-y-6">
+              <div class="slide z-0 absolute  inset-0 flex flex-col justify-center items-star pl-0 md:pl-16  xl:pl-24 2xl:pl-48 text-white w-full md:w-1/2 space-y-6">
                 <h1 class="text-4xl px-2 md:px-0 md:text-5xl text-center md:text-left font-bold ">
                   {item.title}
                 </h1>
@@ -44,7 +44,7 @@ const { slides } = Astro.props;
     </div>
   </div>
 
-  <div class="absolute bottom-8 w-full flex justify-center gap-4 z-0">
+  <div class="absolute bottom-8 w-full flex justify-center gap-4">
     <button
       id="prevButton"
       class="bg-black bg-opacity-50 hover:bg-opacity-80 text-white rounded-full p-4 transition-all duration-300"
@@ -111,7 +111,13 @@ const { slides } = Astro.props;
 
   function showSlide(index: number) {
     slides.forEach((slide, i) => {
-      slide.style.opacity = i === index ? "1" : "0";
+      if (i === index) {
+        slide.style.opacity = "1";
+        slide.style.pointerEvents = "none";
+      } else {
+        slide.style.opacity = "0";
+        slide.style.pointerEvents = "auto";
+      }
     });
   }
 
