@@ -2,6 +2,8 @@
 import { object } from "astro:schema";
 import { Icon } from "astro-icon/components";
 import Button from "../Button.astro";
+import ServiceSliderMovil from "./ServiceSliderMovil.astro";
+import ServiceSliderPC from "./ServiceSliderPC.astro";
 
 const images = [
   {
@@ -27,7 +29,7 @@ const images = [
     class="grid grid-cols-1 lg:grid-cols-2 gap-20 container mx-auto"
     data-gsap="services"
   >
-    <div class="space-y-10">
+    <div class="space-y-10 h-full">
       <div>
         <h4 class="mb-2 text-subtitle text-xl font-semibold">
           ¿Qué ofrecemos?
@@ -54,66 +56,11 @@ const images = [
       />
     </div>
 
-    <div>
-      <div class="project-left">
-        <div
-          class="scrollbar-hide flex w-full snap-x snap-mandatory scroll-px-10 gap-6 lg:gap-10 overflow-x-scroll scroll-smooth"
-        >
-          {
-            images.map((service) => (
-              <div class=" relative bg-[#2C323C] overflow-hidden   shrink-0 snap-start snap-always rounded-xl group">
-                <div class=" w-full h-full relative   overflow-hidden">
-                  <img
-                    src={`${service.src}`}
-                    alt={`${service.title}`}
-                    width="400px"
-                    height="500px"
-                    class=" rounded-xl w-[400px] h-[500px] object-cover "
-                  />
-                </div>
-
-                <div class="absolute bottom-0 translate-y-10  group-hover:translate-y-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white px-8 py-4 z-50 ">
-                  {service.title}
-                  <br />
-                  <span class="inline-block w-6 h-6">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                      />
-                    </svg>
-                  </span>
-                </div>
-
-                <div class="absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration-1000 ease-out text-white  w-full h-full  bg-gradient-to-b from-[rgba(0,0,0,0)] from-50% to-[rgb(19,22,28)] to-100% " />
-              </div>
-            ))
-          }
-        </div>
-      </div>
+    <div class="block md:hidden">
+      <ServiceSliderMovil />
+    </div>
+    <div class="hidden md:block">
+      <ServiceSliderPC />
     </div>
   </article>
 </section>
-<style>
-  .project-left {
-    padding-left: 0;
-  }
-  /* For Webkit-based browsers (Chrome, Safari and Opera) */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* For IE, Edge and Firefox */
-  .scrollbar-hide {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-</style>

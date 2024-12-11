@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import VideoCard from "../components/services/VideoCard.astro";
+import { Icon } from "astro-icon/components";
+
 
 const headers = [
   {
@@ -14,34 +16,60 @@ const videos = [
   {
     id: 1,
     videoUrl: "/videos/recepcion.mp4",
-    title: "Recepción de la mercadería",
+    category: "Recepción de mercadería",
     description: "Procedente de aduanas y laboratorios farmaceuticos.",
+    details: [
+      
+    ]
   },
   {
     id: 2,
     videoUrl: "/videos/almacenaje.mp4",
-    title: "Almacenaje",
-    description: "Nuestro almacén cuenta con áreas con diferentes temperaturas.",
+    category: "Almacenaje",
+    description: "Nuestro almacén cuenta con áreas con diferentes tempraturas.",
+    details: [
+      "Áreas con temperatura ambiente entre los 15°C y los 25°C.",
+      "Cámaras de frío con temperaturas que fluctúan entre los 02 y los 08°C.",
+      "Espacios enrejados para productos controlados y/o fiscalizados.",
+      "Monitoreo y control de temperatura."
+    ]
   },
   {
     id: 3,
     videoUrl: "/videos/calidad.mp4",
-    title: "Servicios de área de calidad",
-    description: "Muestreo, revisión y reporte del estado de la mercadería que ingresa al almacén en estado de cuarentena (revisión organoléptica).",
+    category: "Servicios de área de calidad",
+    description: "",
+    details: [
+      "Muestreo, revisión y reporte del estado de la mercadría que ingresa al almacén en estado de cuarentena (revisión organoléptica).",
+      "Revisión de devoluciones y reporte del estado de la mercadería.",
+      "Control y registro de la mercadería en el área de bajas",
+      "Separación de productos para el área de contra muestras e inventario.",
+      "Programación y descarga de la data de los registradores de temperatura y envió de la información.",
+      "Asesoría en BPA y BPDT."
+    ]
   },
   {
     id: 4,
     videoUrl: "/videos/seguridad.mp4",
-    title: "Seguridad",
-    description: "Video vigilancia en todos los sectores de la empresa, contamos con sistema de alarmas electrónicas conectadas a dispositivos móviles para una respuesta inmediata.",
+    category: "Seguridad",
+    description: "Seguridad",
+    details: [
+      "Selección cuidadosa de nuestro personal.",
+      "Persona responsable que monitorea el perfecto funcionamiento de la seguridad.",
+      "Videovigilancia en todos los sectores de la empresa, operativa las 24horas del día.",
+      "Sistema de alarmas electrónicas conectadas a los dispositivos móviles de los principales ejecutivos, para una respuesta inmediata ante cualquier eventualidad"
+    ]
   },
   {
     id: 5,
     videoUrl: "/videos/transporte.mp4",
-    title: "Transporte",
-    description: "Cubrimos Lima Metropolitana y nuestros vehículos cuentan con monitoreo GPS en tiempo real.",
+    category: "Transporte",
+    description: "Cubrimos Lima Metropolitana y nuestros vehículos cuetan con monitoreo GPS en tiempo real.",
+    details: []
   },
 ];
+
+
 ---
 
 <Layout title="Servicios">
@@ -56,8 +84,19 @@ const videos = [
           {
             videos.map((video) => (
             <div class="  video-container flex flex-col justify-center space-y-3 mr-0 md:mr-20 lg:mr-32 ">
-              <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-primary">{video.title}</h2>
+              <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-primary">{video.category}</h2>
               <p class="text-xl md:text-2xl text-paragraph">{video.description}</p>
+              <ul>
+                {
+                  video.details.map(detail =>(
+                    <li class=" text-lg flex  items-start">
+                      <span class="block w-5 h-5 mr-4">
+                      <Icon name="arrow-next" class="w-5 h-5"/> </span>
+                      <span class="block text-paragraph">{detail}</span>
+                      </li>
+                  ))
+                }
+              </ul>
             </div>
               <VideoCard
                 videoUrl={video.videoUrl}               
