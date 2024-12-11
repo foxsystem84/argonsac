@@ -1,58 +1,57 @@
 ---
 import FormInput from "./FormInput.astro";
 import { Icon } from "astro-icon/components";
-import MathCaptcha from "./MathCaptcha.astro";
 ---
 
 <main class="bg-[#F3F6FB] py-28 mt-0 space-y-20 px-4 md:px-0">
   <section class="mx-auto container">
     <div class="grid grid-cols-1 lg:grid-cols-2">
-      <div class="space-y-4 mr-0 md:mr-20 lg::mr-40 mb-8 md:mb-20">
+      <div class="space-y-4 mr-0 md:mr-20 lg:mr-40">
         <h1 class="text-primary text-5xl font-bold">Contactos</h1>
-        <p>
-          Proin volutpat consequat porttitor cras nullam gravida at. Orci
-          molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu
-          sed malesuada et magna.
+        <p class="text-lg text-paragraph">
+          No dude en comunicarse con nosotros. Nuestro equipo de atención al
+          cliente está a su disposición para brindarle asistencia con cualquier
+          consulta general que pueda tener.
         </p>
-        <ul>
+        <ul class="text-lg text-paragraph">
           <!-- <li class="block mb-4">Teléfonos</li> -->
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="phone" class="w-5 h-5" /></span
+              ><Icon name="phone" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="block">+51 983 392 903</span>
           </li>
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="phone" class="w-5 h-5" /></span
+              ><Icon name="phone" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="inline-block">+51 966 701 346</span>
           </li>
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="phone" class="w-5 h-5" /></span
+              ><Icon name="phone" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="block">+51 944 604 339</span>
           </li>
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="phone" class="w-5 h-5" /></span
+              ><Icon name="phone" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="block">+511 7018501</span>
           </li>
         </ul>
-        <ul>
+        <ul class="text-lg text-paragraph">
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="envelope" class="w-5 h-5" /></span
+              ><Icon name="envelope" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="block">operaciones@argonsac.com</span>
           </li>
         </ul>
-        <ul>
-          <li class="flex items-center">
+        <ul class="text-lg text-paragraph">
+          <li class="flex items-start">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="map" class="w-5 h-5" /></span
+              ><Icon name="map" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="block"
               >Calle Cappa 161-165 Urb. Parque Internacional de la Industria y
@@ -60,29 +59,27 @@ import MathCaptcha from "./MathCaptcha.astro";
             </span>
           </li>
         </ul>
-        <ul>
+        <ul class="text-lg text-paragraph">
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="clock" class="w-5 h-5" /></span
+              ><Icon name="clock" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="block">Lunes a Viernes: 08:00 am a 6:00 pm</span>
           </li>
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
-              ><Icon name="clock" class="w-5 h-5" /></span
+              ><Icon name="clock" class="w-5 h-5 text-[#C80D17]" /></span
             >
             <span class="block">Sábados: 09:00 am a 12:00 pm</span>
           </li>
         </ul>
       </div>
 
-      <div class="w-full mx-auto p-6 bg-white rounded-xl shadow-lg">
-        <!-- <h2 class="text-2xl font-bold text-gray-800 mb-6">Contactnos</h2> -->
-
+      <div class="w-full h-full mx-auto px-12">
         <form
           action="https://api.web3forms.com/submit"
           method="POST"
-          class="space-y-4"
+          class="space-y-6"
           id="contact-form"
         >
           <input
@@ -96,18 +93,28 @@ import MathCaptcha from "./MathCaptcha.astro";
             value="New Contact Form Submission"
           />
           <div class="grid grid-cols-2 gap-10">
-            <FormInput label="Nombre" name="name" required />
-            <FormInput label="Teléfono" name="phone" type="tel" required />
+            <FormInput name="name" placeholder="Tu Nombre" required />
+            <FormInput
+              name="phone"
+              placeholder="Tu teléfono"
+              type="tel"
+              required
+            />
           </div>
+          <FormInput
+            name="email"
+            placeholder="Tu correo"
+            type="email"
+            required
+          />
 
-          <FormInput label="Correo" name="email" type="email" required />
-
-          <div class="space-y-2">
-            <label class="block text-sm font-medium text-gray-700">
+          <div class="mt-6">
+            <!-- <label class="block text-sm font-medium text-gray-700">
               Mensaje
-            </label>
+            </label> -->
             <textarea
               name="message"
+              placeholder="Cuentanos más ..."
               required
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               rows="4"></textarea>
@@ -115,7 +122,7 @@ import MathCaptcha from "./MathCaptcha.astro";
 
           <!-- <MathCaptcha num1={num1} /> -->
           <div class="space-y-2">
-            <label id="captchaLabel"></label>
+            <label id="captchaLabel" class="text-paragraph"></label>
             <input
               type="text"
               id="captchaInput"
@@ -183,7 +190,7 @@ import MathCaptcha from "./MathCaptcha.astro";
     const captchaAnswer = parseInt(captchaInput.value);
 
     if (captchaAnswer !== correctAnswer) {
-      result.innerHTML = `<div class="p-3 bg-red-100 text-red-700 rounded-md">Incorrect captcha answer!</div>`;
+      result.innerHTML = `<div class="p-3 bg-red-100 text-red-700 rounded-md">Captcha incorrecto!</div>`;
       result.classList.remove("hidden");
       generateCaptcha();
       return;
@@ -202,10 +209,10 @@ import MathCaptcha from "./MathCaptcha.astro";
         generateCaptcha();
         form.reset();
       } else {
-        result.innerHTML = `<div class="p-3 bg-red-100 text-red-700 rounded-md">Error sending message. Please try again.</div>`;
+        result.innerHTML = `<div class="p-3 bg-red-100 text-red-700 rounded-md">Error de envió. Por favor vuelva a intentar.</div>`;
       }
     } catch (error) {
-      result.innerHTML = `<div class="p-3 bg-red-100 text-red-700 rounded-md">Error sending message. Please try again.</div>`;
+      result.innerHTML = `<div class="p-3 bg-red-100 text-red-700 rounded-md">Error de envió. Por favor vuelva a intentar.</div>`;
     }
 
     result.classList.remove("hidden");

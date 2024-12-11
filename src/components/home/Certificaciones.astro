@@ -4,13 +4,15 @@ const certifications = [
     title: "Buenas prácticas de almacenamiento  ",
     description:
       "Contamos con certificaciones emitidas por la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID), que incluyen la certificación de Buenas Prácticas de Almacenamiento (BPA).",
-    imagen: "/images/bpa.webp",
+    src: "/images/bpa.webp",
+    alt: "BPA",
   },
   {
     title: "Buenas prácticas de distribución y transporte ",
     description:
       "Contamos con una flota de vehículos certificada en Buenas Prácticas de Distribución y Transporte (BPDT), equipada para cumplir con las condiciones requeridas por la normativa sanitaria vigente.",
-    imagen: "/images/bpdt.webp",
+    src: "/images/bpdt.webp",
+    alt: "BPDT",
   },
 ];
 ---
@@ -30,7 +32,8 @@ const certifications = [
             <div class="relative rounded-2xl shadow-[0_3px_35px_0px_rgba(4,51,77,0.14)] px-8 py-12 bg-slate-50  ">
               <div class="absolute right-0 left-0 -top-16  flex justify-center items-center  ">
                 <img
-                  src={`${item.imagen}`}
+                  src={item.src}
+                  alt={item.alt}
                   class=" h-32 w-32"
                   width="150"
                   height="150"

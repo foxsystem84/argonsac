@@ -1,7 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
 import VideoModal from "./VideoModal.astro";
 import ButtonVideo from "./ButtonVideo.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   slides: {
@@ -14,49 +14,50 @@ interface Props {
 const { slides } = Astro.props;
 ---
 
-<div class="relative h-[600px] lg:h-screen w-full overflow-hidden">
-  <div class="relative h-full w-full">
-    {
-      slides.map((slide, index) => (
-        <div
-          class={`slide absolute w-full h-full transition-opacity duration-500 ease-in-out ${index === 0 ? " opacity-100" : " opacity-0"}`}
-          data-index={index}
-        >
-          <div class=" relative w-full h-full">
-            <img
-              src={slide.url}
-              alt={slide.title}
-              class="absolute w-full h-full object-cover"
-            />
-            <div class="absolute lg:w-1/2 lg:left-48  lg:text-left top-1/2 transform -translate-y-1/2 text-white p-8 w-full text-center md:px-4 ">
-              <h1 class=" text-2xl md:text-4xl lg:text-6xl font-bold mb-4 transition-transform duration-300 translate-y-0">
-                {slide.title}
-              </h1>
-              <p class=" text-base md:text-xl leading-relaxed transition-transform duration-300 translate-y-0 w-full md:w-5/6">
-                {slide.subtitle}
-              </p>
+<div class="relative w-full h-[600px] md:h-screen">
+  <!-- Slider -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="relative h-full w-full">
+      <div
+        id="slider"
+        class="h-full flex absolute inset-0 transition-opacity duration-1000"
+      >
+        <!-- Slide 1 -->
+        {
+          slides.map((item) => (
+            <div
+              class=" absolute  inset-0 opacity-0 transition-opacity duration-1000 "
+              style={`background-image: url(${item.url}); background-size: cover; background-position: center;`}
+            >
+              <div class="slide absolute  inset-0 flex flex-col justify-center items-star pl-0 md:pl-16  xl:pl-24 2xl:pl-48 text-white w-full md:w-1/2 space-y-6">
+                <h1 class="text-4xl px-2 md:px-0 md:text-6xl text-center md:text-left font-bold ">
+                  {item.title}
+                </h1>
+                <p class="text-lg px-2 md:px-0 text-center md:text-left md:text-xl">
+                  {item.subtitle}
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-      ))
-    }
+          ))
+        }
+      </div>
+    </div>
   </div>
 
-  <div class="absolute bottom-8 w-full flex justify-center gap-4 z-10">
+  <div class="absolute bottom-8 w-full flex justify-center gap-4 z-0">
     <button
-      id="prevBtn"
-      class="bg-black bg-opacity-20 hover:bg-opacity-50 text-white rounded-full p-4 transition-all duration-300"
+      id="prevButton"
+      class="bg-black bg-opacity-50 hover:bg-opacity-80 text-white rounded-full p-4 transition-all duration-300"
     >
       <Icon name="arrow-prev" class="h-6 w-6" />
     </button>
     <button
-      id="nextBtn"
-      class="bg-black bg-opacity-20 hover:bg-opacity-50 text-white rounded-full p-4 transition-all duration-300"
+      id="nextButton"
+      class="bg-black bg-opacity-50 hover:bg-opacity-80 text-white rounded-full p-4 transition-all duration-300"
     >
       <Icon name="arrow-next" class="h-6 w-6" />
     </button>
   </div>
-
   <div
     class="absolute top-1/2 left-1/2 right-0 translate-x-1/2 -translate-y-1/2"
   >
@@ -69,74 +70,66 @@ const { slides } = Astro.props;
   </div>
 
   <VideoModal />
-
-  <style>
-    .slide {
-      --slide-transform: translateY(20px);
-    }
-
-    .slide.opacity-0 h1,
-    .slide.opacity-0 p {
-      transform: var(--slide-transform);
-      opacity: 0;
-    }
-
-    .slide.opacity-100 h1,
-    .slide.opacity-100 p {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .slide h1,
-    .slide p {
-      transition:
-        transform 0.5s ease-out,
-        opacity 0.5s ease-out;
-    }
-
-    .slide h1 {
-      transition-delay: 0.2s;
-    }
-
-    .slide p {
-      transition-delay: 0.4s;
-    }
-  </style>
-
-  <script>
-    let currentSlide = 0;
-    const totalSlides = 4;
-
-    function updateSlides(direction: "next" | "prev") {
-      const slides = document.querySelectorAll(".slide");
-      const currentSlideElement = slides[currentSlide];
-
-      // Calculate next slide index
-      if (direction === "next") {
-        currentSlide = (currentSlide + 1) % totalSlides;
-      } else {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      }
-
-      // Hide all slides
-      slides.forEach((slide) => {
-        slide.classList.remove("opacity-100");
-        slide.classList.add("opacity-0");
-      });
-
-      // Show current slide
-      slides[currentSlide].classList.remove("opacity-0");
-      slides[currentSlide].classList.add("opacity-100");
-    }
-
-    setInterval(() => updateSlides("next"), 5000);
-
-    // Event listeners
-    document
-      .getElementById("nextBtn")
-      ?.addEventListener("click", () => updateSlides("next"));
-    document
-      .getElementById("prevBtn")
-      ?.addEventListener("click", () => updateSlides("prev"));
-  </script>
 </div>
+
+<style>
+  .slide {
+    --slide-transform: translateY(20px);
+  }
+
+  .slide.opacity-0 h1,
+  .slide.opacity-0 p {
+    transform: var(--slide-transform);
+    opacity: 0;
+  }
+
+  .slide.opacity-100 h1,
+  .slide.opacity-100 p {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .slide h1,
+  .slide p {
+    transition:
+      transform 0.5s ease-out,
+      opacity 0.5s ease-out;
+  }
+
+  .slide h1 {
+    transition-delay: 0.2s;
+  }
+
+  .slide p {
+    transition-delay: 0.4s;
+  }
+</style>
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll<HTMLElement>("#slider > div");
+  const totalSlides = slides.length;
+
+  function showSlide(index: number) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = i === index ? "1" : "0";
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  }
+
+  document.getElementById("nextButton")?.addEventListener("click", nextSlide);
+  document.getElementById("prevButton")?.addEventListener("click", prevSlide);
+
+  setInterval(nextSlide, 5000);
+
+  // Initialize first slide
+  showSlide(currentIndex);
+</script>

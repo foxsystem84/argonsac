@@ -1,11 +1,9 @@
 ---
 interface Props {
   videoUrl: string;
-  title?: string;
-  description?: string;
 }
 
-const { videoUrl, title, description } = Astro.props;
+const { videoUrl } = Astro.props;
 ---
 
 <div
@@ -59,7 +57,7 @@ const { videoUrl, title, description } = Astro.props;
       container,
       {
         opacity: 0,
-        y: 100,
+        y: 50,
         scale: 0.9,
       },
       {

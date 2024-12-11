@@ -20,22 +20,31 @@ type HTMLInputTypeAttribute =
   | "range";
 
 interface Props {
-  label: string;
+  label?: string;
+  placeholder?: string;
   name: string;
   type?: HTMLInputTypeAttribute;
   required?: boolean;
   pattern?: string;
 }
 
-const { label, name, type = "text", required = false, pattern } = Astro.props;
+const {
+  label,
+  name,
+  placeholder,
+  type = "text",
+  required = false,
+  pattern,
+} = Astro.props;
 ---
 
 <div class="space-y-2">
-  <label for={name} class="block text-sm font-medium text-gray-700">
+  <!-- <label for={name} class="block text-sm font-medium text-gray-700">
     {label}
-  </label>
+  </label> -->
   <input
     type={type}
+    placeholder={placeholder}
     id={name}
     name={name}
     required={required}
