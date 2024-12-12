@@ -73,10 +73,10 @@ const videos = [
   <main class="py-24 px-4 bg-[#FAFCFD]">
     <section class="container mx-auto">
       <div class="mb-10 space-y-4 mx-auto max-w-4xl">
-        <h1 class="text-5xl text-primary font-bold text-center">
+        <h1 class="text-3xl md:text-5xl text-primary font-bold text-center">
           Nuestros servicios
         </h1>
-        <p class="text-xl text-paragraph text-center">
+        <p class="text-lg md:text-xl text-paragraph text-center">
           Ofrecemos soluciones innovadoras en distribución y almacenaje de
           medicamentos. Nuestro enfoque está en garantizar la calidad, seguridad
           y eficiencia en cada proceso.
@@ -85,19 +85,21 @@ const videos = [
       <div class="">
         {
           videos.map((video) => (
-            <div class="video-container grid grid-cols-2  bg-[#F1F5F9] mb-20 rounded-3xl">
-              <div class=" pr-20 p-10 space-y-4 flex flex-col justify-center">
-                <h2 class=" text-primary font-semibold text-3xl">
+            <div class="video-container grid grid-cols-1 md:grid-cols-2  bg-[#F1F5F9] mb-20 rounded-3xl">
+              <div class=" pr-4 md:pr-20 p-8 md:p-10 space-y-4 flex flex-col justify-center">
+                <h2 class=" text-primary font-semibold text-2xl md:text-3xl">
                   {video.category}
                 </h2>
-                <p class=" text-2xl text-paragraph">{video.description}</p>
+                <p class=" text-lg md:text-2xl text-paragraph">
+                  {video.description}
+                </p>
                 <ul>
                   {video.details.map((detail) => (
                     <li class=" text-paragraph text-lg flex items-start space-x-2">
                       <span class="block w-5 h-5">
                         <Icon name="check" class="text-subtitle w-5 h-5" />
                       </span>
-                      <span class="block">{detail}</span>
+                      <span class="block ">{detail}</span>
                     </li>
                   ))}
                 </ul>
