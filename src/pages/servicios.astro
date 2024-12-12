@@ -4,7 +4,6 @@ import Header from "../components/Header.astro";
 import VideoCard from "../components/services/VideoCard.astro";
 import { Icon } from "astro-icon/components";
 
-
 const headers = [
   {
     title: "Servicios",
@@ -18,9 +17,7 @@ const videos = [
     videoUrl: "/videos/recepcion.mp4",
     category: "Recepción de mercadería",
     description: "Procedente de aduanas y laboratorios farmaceuticos.",
-    details: [
-      
-    ]
+    details: [],
   },
   {
     id: 2,
@@ -31,8 +28,8 @@ const videos = [
       "Áreas con temperatura ambiente entre los 15°C y los 25°C.",
       "Cámaras de frío con temperaturas que fluctúan entre los 02 y los 08°C.",
       "Espacios enrejados para productos controlados y/o fiscalizados.",
-      "Monitoreo y control de temperatura."
-    ]
+      "Monitoreo y control de temperatura.",
+    ],
   },
   {
     id: 3,
@@ -45,8 +42,8 @@ const videos = [
       "Control y registro de la mercadería en el área de bajas",
       "Separación de productos para el área de contra muestras e inventario.",
       "Programación y descarga de la data de los registradores de temperatura y envió de la información.",
-      "Asesoría en BPA y BPDT."
-    ]
+      "Asesoría en BPA y BPDT.",
+    ],
   },
   {
     id: 4,
@@ -57,64 +54,69 @@ const videos = [
       "Selección cuidadosa de nuestro personal.",
       "Persona responsable que monitorea el perfecto funcionamiento de la seguridad.",
       "Videovigilancia en todos los sectores de la empresa, operativa las 24horas del día.",
-      "Sistema de alarmas electrónicas conectadas a los dispositivos móviles de los principales ejecutivos, para una respuesta inmediata ante cualquier eventualidad"
-    ]
+      "Sistema de alarmas electrónicas conectadas a los dispositivos móviles de los principales ejecutivos, para una respuesta inmediata ante cualquier eventualidad",
+    ],
   },
   {
     id: 5,
     videoUrl: "/videos/transporte.mp4",
     category: "Transporte",
-    description: "Cubrimos Lima Metropolitana y nuestros vehículos cuetan con monitoreo GPS en tiempo real.",
-    details: []
+    description:
+      "Cubrimos Lima Metropolitana y nuestros vehículos cuetan con monitoreo GPS en tiempo real.",
+    details: [],
   },
 ];
-
-
 ---
 
 <Layout title="Servicios">
   <Header headers={headers} />
-  <main  class="  py-24 px-4">
-    <section class="container mx-auto bg-[##FAFCFD]">
-      <div >
-        <h1 class="text-3xl lg:text-6xl font-bold text-center text-primary mb-8">
+  <main class="py-24 px-4 bg-[#FAFCFD]">
+    <section class="container mx-auto">
+      <div class="mb-10 space-y-4 mx-auto max-w-4xl">
+        <h1 class="text-5xl text-primary font-bold text-center">
           Nuestros servicios
         </h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 space-y-10 md:space-y-24 ">   
-          {
-            videos.map((video) => (
-            <div class="  video-container flex flex-col justify-center space-y-3 mr-0 md:mr-20 lg:mr-32 ">
-              <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-primary">{video.category}</h2>
-              <p class="text-xl md:text-2xl text-paragraph">{video.description}</p>
-              <ul>
-                {
-                  video.details.map(detail =>(
-                    <li class=" text-lg flex  items-start">
-                      <span class="block w-5 h-5 mr-4">
-                      <Icon name="check" class="w-5 h-5 text-subtitle"/> </span>
-                      <span class="block text-paragraph">{detail}</span>
-                      </li>
-                  ))
-                }
-              </ul>
-            </div>
-              <VideoCard
-                videoUrl={video.videoUrl}               
-              />
-            ))
-          }
-        </div>
+        <p class="text-xl text-paragraph text-center">
+          Ofrecemos soluciones innovadoras en distribución y almacenaje de
+          medicamentos. Nuestro enfoque está en garantizar la calidad, seguridad
+          y eficiencia en cada proceso.
+        </p>
       </div>
-    </section>    
+      <div class="">
+        {
+          videos.map((video) => (
+            <div class="video-container grid grid-cols-2  bg-[#F1F5F9] mb-20 rounded-3xl">
+              <div class=" pr-20 p-10 space-y-4 flex flex-col justify-center">
+                <h2 class=" text-primary font-semibold text-3xl">
+                  {video.category}
+                </h2>
+                <p class=" text-2xl text-paragraph">{video.description}</p>
+                <ul>
+                  {video.details.map((detail) => (
+                    <li class=" text-paragraph text-lg flex items-start space-x-2">
+                      <span class="block w-5 h-5">
+                        <Icon name="check" class="text-subtitle w-5 h-5" />
+                      </span>
+                      <span class="block">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="">
+                <VideoCard videoUrl={video.videoUrl} />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
   </main>
 </Layout>
 <script>
   import { gsap } from "gsap";
 
   gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.normalizeScroll(true)
-
-
+  ScrollTrigger.normalizeScroll(true);
 
   // Animate main title
   gsap.fromTo(
@@ -123,15 +125,3 @@ const videos = [
     { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
   );
 </script>
-<style>
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  html {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-</style>

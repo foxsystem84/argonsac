@@ -13,67 +13,57 @@ const images = [
 ];
 ---
 
-<section class="py-28 container mx-auto">
-  <div
-    class="grid grid-cols-1 lg:grid-cols-2 gap-20 px-4 md:px-0"
-    data-gsap="about"
-  >
-    <!-- <div class="relative">
-      <img
-        src={`${images[0].src}`}
-        alt={`${images[0].alt}`}
-        class="ml-auto rounded-xl w-4/6 h-96 object-cover"
-      />
-      <img
-        src={`${images[1].src}`}
-        alt={`${images[1].alt}`}
-        class="absolute rounded-xl -bottom-28 w-1/2 h-72 object-cover"
-      />
-    </div> -->
-    <div class="flex justify-end items-center w-full h-full">
-      <img
-        src="/images/history2.webp"
-        class="object-cover"
-        alt="Nosotros Argon Pharma SAC"
-      />
-    </div>
-    <div class="flex flex-col justify-center space-y-6">
-      <div>
-        <h4
-          class="mb-2 mt-16 md:mt-0 text-subtitle text-lg md:text-2xl font-semibold"
-        >
-          Nosotros
-        </h4>
-        <h2
-          class="text-2xl md:text-3xl lg:text-5xl text-primary font-bold mb-4"
-        >
-          Construyendo relaciones de confianza con nuestros clientes y
-          proveedores.
-        </h2>
-        <p class="text-paragraph text-lg md:text-xl leading-relaxed">
-          En Argon, somos una empresa peruana dedicada a brindar servicios de
-          almacenamiento y transporte de productos farmacéuticos. Nuestro
-          objetivo es ofrecer soluciones logísticas de alta calidad que superen
-          las expectativas de nuestros clientes. Creemos firmemente que la
-          construcción de relaciones a largo plazo, basadas en la confianza, es
-          fundamental para el éxito. Estas relaciones nos permiten establecer
-          alianzas estratégicas que nos posicionan como su mejor opción en el
-          sector logístico farmacéutico.
-        </p>
+<section class="py-28 bg-[#FAFCFD]">
+  <div class="container mx-auto">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-20 px-4 md:px-0"
+      data-gsap="about"
+    >
+      <div class="flex justify-end items-center w-full h-full">
+        <img
+          src="/images/history2.webp"
+          class="object-cover"
+          alt="Nosotros Argon Pharma SAC"
+        />
       </div>
-      <div>
-        <!-- <a
+      <div class="flex flex-col justify-center space-y-6">
+        <div>
+          <h4
+            class="mb-2 mt-16 md:mt-0 text-subtitle text-lg md:text-2xl font-semibold"
+          >
+            Nosotros
+          </h4>
+          <h2
+            class="text-2xl md:text-3xl lg:text-5xl text-primary font-bold mb-4"
+          >
+            Construyendo relaciones de confianza con nuestros clientes y
+            proveedores.
+          </h2>
+          <p class="text-paragraph text-lg md:text-xl leading-relaxed">
+            En Argon, somos una empresa peruana dedicada a brindar servicios de
+            almacenamiento y transporte de productos farmacéuticos. Nuestro
+            objetivo es ofrecer soluciones logísticas de alta calidad que
+            superen las expectativas de nuestros clientes. Creemos firmemente
+            que la construcción de relaciones a largo plazo, basadas en la
+            confianza, es fundamental para el éxito. Estas relaciones nos
+            permiten establecer alianzas estratégicas que nos posicionan como su
+            mejor opción en el sector logístico farmacéutico.
+          </p>
+        </div>
+        <div>
+          <!-- <a
           href="/nosotros"
           class="py-2 px-4 text-xl text-white bg-[#0090D2] rounded-xl inline-block"
           >Conocenos más</a
         > -->
-        <Button
-          href="/nosotros"
-          bg="#0090D2"
-          hover="#00618C"
-          color="white"
-          text="Conócenos más"
-        />
+          <Button
+            href="/nosotros"
+            bg="#0090D2"
+            hover="#00618C"
+            color="white"
+            text="Conócenos más"
+          />
+        </div>
       </div>
     </div>
   </div>
