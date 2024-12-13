@@ -33,10 +33,10 @@ const { slides } = Astro.props;
               style={`background-image: url(${slide.url}); background-size: cover; background-position: center;`}
             >
               <div class="slide z-0 absolute  inset-0 flex flex-col justify-center slides-star pl-0 md:pl-16  xl:pl-24 2xl:pl-48 text-white w-full md:w-1/2 space-y-6">
-                <h1 class="text-4xl px-2 md:px-0 md:text-5xl text-center md:text-left font-bold ">
+                <h1 class="text-4xl  uppercase px-2 md:px-0 md:text-5xl text-center md:text-left font-bold ">
                   {slide.title}
                 </h1>
-                <p class="text-xl px-2 md:px-0 text-center md:text-left md:text-xl">
+                <p class="text-xl  uppercase px-2 md:px-0 text-center md:text-left md:text-xl">
                   {slide.subtitle}
                 </p>
                 {slide.images && slide.images?.length > 0 && (
@@ -151,7 +151,7 @@ const { slides } = Astro.props;
   document.getElementById("nextButton")?.addEventListener("click", nextSlide);
   document.getElementById("prevButton")?.addEventListener("click", prevSlide);
 
-  setInterval(nextSlide, 5000);
+  setInterval(nextSlide, 10000);
 
   // Initialize first slide
   showSlide(currentIndex);
