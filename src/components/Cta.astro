@@ -2,7 +2,7 @@
 import Button from "./Button.astro";
 ---
 
-<section class="py-28">
+<section class="py-40">
   <!-- <div class=" before:bg-[#1C2329] before:absolute before:top-0"></div> -->
   <!-- <div
     class="container mx-auto pb-28 border-b border-[#3C4247]"
@@ -67,20 +67,28 @@ import Button from "./Button.astro";
             class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start"
           >
             <a
-              href="/contactos"
+              href="https://api.whatsapp.com/send?phone=983392903"
+              target="_blank"
               class="rounded-md bg-white px-3.5 py-2.5 text-base font-semibold text-gray-900 shadow-sm hover:bg-[#DEF3FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >Contáctanos ahora</a
             >
           </div>
         </div>
-        <div class="relative mt-16 h-80 lg:mt-8">
+        <div class="relative mt-16 h-80 lg:mt-8 overlay">
           <img
-            class="absolute left-0 top-0 w-[32rem] md:w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
-            src="/images/cta2.webp"
-            alt="App screenshot"
+            class="absolute left-0 top-0 w-[32rem] md:w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10 overflow-hidden"
+            src="/images/cta.webp"
+            alt="Aprovecha nuestro primer mes gratis"
           />
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- <style>
+  .overlay {
+    background-color: transparent;
+    background-image: linear-gradient(90deg, #171717, transparent 68%),
+      linear-gradient(transparent 31%, #171717);
+  }
+</style> -->

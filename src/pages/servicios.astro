@@ -25,8 +25,9 @@ const videos = [
     category: "Almacenaje",
     description: "Nuestro almacén cuenta con áreas con diferentes tempraturas.",
     details: [
-      "Áreas con temperatura ambiente entre los 15°C y los 25°C.",
-      "Cámaras de frío con temperaturas que fluctúan entre los 02 y los 08°C.",
+      "Áreas con temperatura ambiente controlada: 15°C - 25°C.",
+      "Temperatura ambiente: 15°C - 30°C.",
+      "Temperatura refrigerada: 2°C - 8°C.",
       "Espacios enrejados para productos controlados y/o fiscalizados.",
       "Monitoreo y control de temperatura.",
     ],
@@ -39,7 +40,7 @@ const videos = [
     details: [
       "Muestreo, revisión y reporte del estado de la mercadría que ingresa al almacén en estado de cuarentena (revisión organoléptica).",
       "Revisión de devoluciones y reporte del estado de la mercadería.",
-      "Control y registro de la mercadería en el área de bajas",
+      "Control y registro de la mercadería en el área de bajas.",
       "Separación de productos para el área de contra muestras e inventario.",
       "Programación y descarga de la data de los registradores de temperatura y envió de la información.",
       "Asesoría en BPA y BPDT.",
@@ -54,7 +55,7 @@ const videos = [
       "Selección cuidadosa de nuestro personal.",
       "Persona responsable que monitorea el perfecto funcionamiento de la seguridad.",
       "Videovigilancia en todos los sectores de la empresa, operativa las 24horas del día.",
-      "Sistema de alarmas electrónicas conectadas a los dispositivos móviles de los principales ejecutivos, para una respuesta inmediata ante cualquier eventualidad",
+      "Sistema de alarmas electrónicas conectadas a los dispositivos móviles de los principales ejecutivos, para una respuesta inmediata ante cualquier eventualidad.",
     ],
   },
   {
@@ -62,7 +63,7 @@ const videos = [
     videoUrl: "/videos/transporte.mp4",
     category: "Transporte",
     description:
-      "Cubrimos Lima Metropolitana y nuestros vehículos cuetan con monitoreo GPS en tiempo real.",
+      "Cubrimos Lima Metropolitana y nuestros vehículos cuentan con monitoreo GPS en tiempo real.",
     details: [],
   },
 ];
@@ -70,22 +71,24 @@ const videos = [
 
 <Layout title="Servicios">
   <Header headers={headers} />
-  <main class="py-24 px-4 bg-[#FAFCFD]">
+  <main class="py-40 px-4 bg-[#FAFCFD]">
     <section class="container mx-auto">
-      <div class="mb-10 space-y-4 mx-auto max-w-4xl">
-        <h1 class="text-3xl md:text-5xl text-primary font-bold text-center">
+      <div class="mb-20 mx-auto max-w-5xl">
+        <h1
+          class="text-3xl md:text-5xl mb-4 text-primary font-bold text-center"
+        >
           Nuestros servicios
         </h1>
-        <p class="text-lg md:text-xl text-paragraph text-center">
+        <p class="text-lg md:text-2xl text-paragraph text-center">
           Ofrecemos soluciones innovadoras en distribución y almacenaje de
           medicamentos. Nuestro enfoque está en garantizar la calidad, seguridad
           y eficiencia en cada proceso.
         </p>
       </div>
-      <div class="">
+      <div class="space-y-20">
         {
           videos.map((video) => (
-            <div class="video-container grid grid-cols-1 md:grid-cols-2  bg-[#F1F5F9] mb-20 rounded-3xl">
+            <div class="video-container grid grid-cols-1 md:grid-cols-2  bg-[#F1F5F9]   rounded-3xl">
               <div class=" pr-4 md:pr-20 p-8 md:p-10 space-y-4 flex flex-col justify-center">
                 <h2 class=" text-primary font-semibold text-2xl md:text-3xl">
                   {video.category}
