@@ -9,12 +9,12 @@ import Copyright from "./Copyright.astro";
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-white"
     >
       <div class="space-y-4">
-        <img src="/images/logo-argon.webp" />
-        <img src="/images/SAP.webp" />
-        <img src="/images/exxis-cloud.webp" />
+        <img src="/images/logo-argon.webp" alt="Logo Argon" />
+        <img src="/images/SAP.webp" alt="SAP" />
+        <img src="/images/exxis-cloud.webp" alt="exxis" />
       </div>
       <div>
-        <h5 class="font-bold mb-4">Oficina</h5>
+        <span class="font-bold mb-4 block">Oficina</span>
         <ul class="text-[#B2BDC6] space-y-4">
           <li class="flex items-start">
             <span class="block w-5 h-5 mr-4"
@@ -58,7 +58,7 @@ import Copyright from "./Copyright.astro";
         </ul>
       </div>
       <div>
-        <h5 class="font-bold mb-4">Enlaces rápidos</h5>
+        <span class="font-bold mb-4 block">Enlaces rápidos</span>
         <ul class="text-[#B2BDC6] space-y-4">
           <li>
             <a
@@ -91,10 +91,13 @@ import Copyright from "./Copyright.astro";
         </ul>
       </div>
       <div>
-        <h4 class="font-bold mb-4">Redes sociales</h4>
+        <span class="font-bold mb-4 block">Redes sociales</span>
         <ul class="text-[#B2BDC6] flex flex-row gap-4">
           <li>
-            <a href="https://www.facebook.com/argonsac/" target="_blank"
+            <a
+              href="https://www.facebook.com/argonsac/"
+              target="_blank"
+              aria-label="Red social facebook"
               ><Icon
                 name="facebook"
                 class="h-8 w-8 hover:text-white transition duration-150 ease-in-out"
@@ -102,7 +105,10 @@ import Copyright from "./Copyright.astro";
             >
           </li>
           <li>
-            <a href="https://www.instagram.com/argonpharma/" target="_blank"
+            <a
+              href="https://www.instagram.com/argonpharma/"
+              target="_blank"
+              aria-label="Red social instagram"
               ><Icon
                 name="instagram"
                 class="h-8 w-8 hover:text-white transition duration-150 ease-in-out"
@@ -110,7 +116,10 @@ import Copyright from "./Copyright.astro";
             >
           </li>
           <li>
-            <a href="https://www.linkedin.com/feed/" target="_blank"
+            <a
+              href="https://www.linkedin.com/feed/"
+              target="_blank"
+              aria-label="Red social linkedin"
               ><Icon
                 name="linkedin"
                 class="h-8 w-8 hover:text-white transition duration-150 ease-in-out"

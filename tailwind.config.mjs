@@ -17,6 +17,13 @@ export default {
         h1: "60px",
         h2: "40px",
       },
+      screens: {
+        sm: "480px",
+        md: "768px",
+        lg: "976px",
+        xl: "1000px",
+        "2xl": "1400px",
+      },
     },
   },
   plugins: [],

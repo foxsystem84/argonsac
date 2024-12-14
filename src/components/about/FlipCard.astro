@@ -10,37 +10,7 @@ interface Props {
 const { image, frontImage, backTitle, backDescription } = Astro.props;
 ---
 
-<!-- <div class="">
-  <div class="flip-card w-auto md:w-[500px] h-[600px] perspective-1000">
-    <div
-      class="relative w-full h-full flex flex-col flex-wrap justify-between flex-1 transition-transform duration-500 transform-style-3d flip-card-inner"
-    >
-    
-      <div
-        class="relative rounded-3xl bg-[#555555] w-full h-full backface-hidden"
-      >
-        <div class="w-full h-full rounded-3xl shadow-lg p-7 text-white">
-          {backTitle}
-        </div>
-        <div class="absolute top-10 text-center z-50 font-bold text-8xl">1</div>
-      </div>
-     
-      <div
-        class="absolute overflow-hidden w-full h-full bg-white rounded-2xl shadow-lg transform rotate-y-180 backface-hidden"
-      >
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">{backTitle}</h3>
-          <p class="text-gray-600 text-xl">{backDescription}</p>
-        </div>
-        <div
-          class={`${frontImage} absolute bottom-0 rounded-2xl bg-cover bg-center h-3/5 w-full`}
-        >
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<div class="flip-card w-auto md:w-[370px] h-[400px] perspective-1000">
+<div class="flip-card w-auto md:w-[340px] h-[400px] perspective-1000">
   <div
     class="relative w-full h-full transition-transform duration-500 transform-style-3d"
   >
