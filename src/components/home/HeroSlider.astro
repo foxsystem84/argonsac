@@ -32,12 +32,19 @@ const { slides } = Astro.props;
               class=" absolute  inset-0 opacity-0 transition-opacity duration-1000 "
               style={`background-image: url(${slide.url}); background-size: cover; background-position: center;`}
             >
-              <div class="slide z-0 absolute  inset-0 flex flex-col justify-center slides-star pl-0 md:pl-16  xl:pl-24 2xl:pl-48 text-white w-full md:w-1/2 space-y-6">
-                <h1 class="text-4xl  uppercase px-2 md:px-0 md:text-5xl text-center md:text-left font-bold ">
+              <div class="slide z-0 absolute  inset-0 flex flex-col justify-center slides-star pl-0 md:pl-16  xl:pl-24 2xl:pl-48 text-white w-full md:w-4/6 space-y-6">
+                <h1 class="text-4xl text-wrap font-exo leading-tight uppercase px-2 md:px-0 xl:text-[48px]  2xl:text-[68px] text-center md:text-left font-bold ">
                   {slide.title}
                 </h1>
-                <p class="text-xl  uppercase px-2 md:px-0 text-center md:text-left md:text-xl">
-                  {slide.subtitle}
+                <p class="text-xl text-wrap font-exo leading-normal font-semibold  uppercase px-2 md:px-0 text-center md:text-left md:text-2xl">
+                  {slide.subtitle
+                    ? slide.subtitle.split("\n").map((line) => (
+                        <span>
+                          {line}
+                          <br />
+                        </span>
+                      ))
+                    : null}
                 </p>
                 {slide.images && slide.images?.length > 0 && (
                   <div class="flex justify-center md:justify-start mt-2 space-x-2">

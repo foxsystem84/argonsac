@@ -5,9 +5,16 @@ import ButtonVideo from "../home/ButtonVideo.astro";
 ---
 
 <section class="py-40 container mx-auto mb-4 md:mb-0">
-  <div class="flex justify-center items-center relative">
-    <img src="/images/bg-video.webp" class="rounded-2xl" alt="" />
-
+  <div class="flex justify-center items-center relative w-full h-full">
+    <!-- <img
+      src="/images/bg-video.webp"
+      class="rounded-2xl bg-cover h-[600px] w-auto"
+      alt="Video youtube Argon Pharma"
+    /> -->
+    <div
+      class="bg-[url('/images/bg-video.webp')] bg-cover bg-center aspect-video w-full h-auto rounded-2xl"
+    >
+    </div>
     <div class="absolute hover:bg-black rounded-full ease-in-out duration-300">
       <ButtonVideo />
     </div>

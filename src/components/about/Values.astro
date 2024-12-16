@@ -1,5 +1,7 @@
 ---
 import FlipCard from "./FlipCard.astro";
+import { Icon } from "astro-icon/components";
+
 const values = [
   {
     image: "integrity",
@@ -30,29 +32,42 @@ const values = [
 
 <section class="py-40 bg-[#FAFCFD] px-4 md:px-0">
   <div class="container mx-auto">
-    <div class="space-y-16">
-      <div>
-        <h2
-          class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 text-primary"
-        >
-          Nuestros valores
-        </h2>
-        <p class="text-paragraph text-lg md:text-xl leading-relaxed">
-          Para ARGON PHARMA los valores son los pilares de la cultura
-          organizacional y orientan su actuar y la toma de decisiones ante
-          situaciones diversas.
-        </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+      <div
+        class="bg-[url('/images/values.webp')] aspect-square bg-cover bg-center w-full lg:w-[550px] h-full bg-no-repeat mb-10 md:mb-0 rounded-xl"
+      >
+        <!-- <img src="/images/values-2.jpg" class="w-auto h-full rounded-2xl" /> -->
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {
-          values.map((card) => (
-            <FlipCard
-              image={card.image}
-              backTitle={card.backTitle}
-              backDescription={card.backDescription}
-            />
-          ))
-        }
+      <div>
+        <div class="mb-8 mt-10 lg:mt-0">
+          <h2 class="text-primary text-2xl lg:text-5xl font-bold mb-6">
+            Nuestros valores
+          </h2>
+          <p class="text-paragraph text-lg md:text-xl leading-relaxed">
+            Para ARGON PHARMA los valores son los pilares de la cultura
+            organizacional y orientan su actuar a la toma de decisiones ante
+            situaciones diversas.
+          </p>
+        </div>
+        <div>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+              values.map((item) => (
+                <li class=" shadow-xl rounded-lg px-8 py-10 bg-white space-y-4 group hover:bg-[#0090D2] ease-in-out duration-500">
+                  <span class="block text-primary  text-xl font-semibold group-hover:text-white ease-in-out duration-500">
+                    <span>
+                      <Icon name={item.image} class=" text-5xl" />
+                    </span>
+                    {item.backTitle}
+                  </span>
+                  <span class="block text-paragraph group-hover:text-white ease-in-out duration-500">
+                    {item.backDescription}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </div>
   </div>

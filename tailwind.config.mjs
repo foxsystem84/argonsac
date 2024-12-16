@@ -6,6 +6,7 @@ export default {
       exo: ["Exo", "sans-serif"],
       rubik: ["Rubik", "sans-serif"],
       mulish: ["Mulish", "sans-serif"],
+      manrope: ["Manrope", "sans-serif"],
     },
     extend: {
       colors: {
@@ -18,11 +19,11 @@ export default {
         h2: "40px",
       },
       screens: {
-        sm: "480px",
-        md: "768px",
-        lg: "976px",
-        xl: "1000px",
-        "2xl": "1400px",
+        sm: "540px",
+        md: "720px",
+        lg: "960px",
+        xl: "1140px",
+        "2xl": "1320px",
       },
     },
   },
