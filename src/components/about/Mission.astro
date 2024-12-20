@@ -2,12 +2,10 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section
-  class="py-40 bg-[url('/bg-service.png')] bg-cover bg-center px-4 md:px-0"
->
+<section class="py-40 bg-[#04ADEF]/80 px-4 md:px-0">
   <div class="container mx-auto">
     <div class="w-full md:w-1/2 mb-10 lg:mb-12">
-      <h5 class="text-[#96A1AA] text-lg md:text-2xl font-semibold mb-4">
+      <h5 class="text-white text-lg md:text-2xl font-semibold mb-4">
         Nuestros valores y misiones
       </h5>
       <h2 class="text-2xl font-bold md:text-3xl lg:text-5xl text-white">
@@ -17,15 +15,20 @@ import { Icon } from "astro-icon/components";
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
       <div>
-        <div class="text-[#96A1AA] mb-4 space-x-2">
-          <Icon
-            name="mission"
-            class="inline-block h-8 w-8 text-[#C80D17]"
-          /><span class="text-xl md:text-2xl text-white align-middle"
-            >Misión</span
-          >
+        <div class="text-white mb-4 space-x-2">
+          <span class="flex items-center justify-start text-xl md:text-2xl">
+            <span
+              class="flex items-center justify-center rounded-full bg-white h-12 w-12 mr-2"
+            >
+              <Icon
+                name="mission"
+                class="inline-block h-8 w-8 text-[#04adef]"
+              />
+            </span>
+            Misión
+          </span>
         </div>
-        <p class="text-[#96A1AA] text-lg md:text-xl leading-relaxed">
+        <p class="text-white text-lg md:text-xl leading-relaxed">
           Somos una empresa dedicada a brindar soluciones logísticas en el
           sector farmacéutico, enfocándonos en ofrecer servicios de
           almacenamiento y transporte de productos farmacéuticos. Nos
@@ -34,15 +37,17 @@ import { Icon } from "astro-icon/components";
         </p>
       </div>
       <div>
-        <div class="text-[#96A1AA] mb-4 space-x-2">
-          <Icon
-            name="vision"
-            class="inline-block h-8 w-8 text-[#C80D17]"
-          /><span class="text-xl md:text-2xl text-white align-middle"
-            >Visión</span
-          >
+        <div class="text-white mb-4 space-x-2">
+          <span class="flex items-center justify-start text-xl md:text-2xl">
+            <span
+              class="flex items-center justify-center rounded-full bg-white h-12 w-12 mr-2"
+            >
+              <Icon name="vision" class="inline-block h-8 w-8 text-[#04adef]" />
+            </span>
+            Vision
+          </span>
         </div>
-        <p class="text-[#96A1AA] text-lg md:text-xl leading-relaxed">
+        <p class="text-white text-lg md:text-xl leading-relaxed">
           Convertirnos en una empresa reconocida en el sector farmacéutico por
           nuestra excelencia en soluciones logísticas, estableciendo relaciones
           duraderas con nuestros clientes y contribuyendo al bienestar de la

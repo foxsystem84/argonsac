@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import Cta from "../components/Cta.astro";
 import Whatsapp from "../components/Whatsapp.astro";
+import Copyright from "../components/Copyright.astro";
 
 const { title, description, image, frontmatter, robots } = Astro.props;
 ---
@@ -17,20 +18,20 @@ const { title, description, image, frontmatter, robots } = Astro.props;
     <Seo {title} {description} url={Astro.url} {image} {frontmatter} {robots} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Pacifico&family=Protest+Riot&family=Rubik:ital,wght@0,300..900;1,300..900&family=Titan+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
     <title>Argon Pharma | {title}</title>
   </head>
-  <body class="font-rubik bg-[#F1F5F9]">
+  <body class="font-exo">
     <Navbar />
     <slot />
     <Whatsapp />
     <!-- <Cta /> -->
     <Footer />
+    <Copyright />
   </body>
 </html>
 

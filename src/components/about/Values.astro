@@ -7,30 +7,30 @@ const values = [
     image: "integrity",
     backTitle: "Integridad",
     backDescription:
-      "Actuamos con transparencia y honestidad en todas nuestras interacciones.",
+      "Actuamos con transparencia y honestidad en cada una de nuestras interacciones, garantizando relaciones de confianza y respeto con nuestros clientes y colaboradores.",
   },
   {
     image: "professional",
     backTitle: "Profesionalismo",
     backDescription:
-      "Mantenemos altos estándares en el servicio al cliente y la calidad de nuestros servicios.",
+      "Mantenemos altos estándares de calidad en cada servicio, asegurando la excelencia y satisfacción en cada etapa de la cadena logística.",
   },
   {
     image: "perseverance",
     backTitle: "Perseverancia",
     backDescription:
-      "Nos esforzamos continuamente por mejorar y superar los desafíos.",
+      "Nos esforzamos de manera constante por superar los desafíos, innovar y mejorar continuamente para alcanzar nuestros objetivos y los de nuestros clientes.",
   },
   {
     image: "proactivity",
     backTitle: "Proactividad",
     backDescription:
-      "Anticipamos las necesidades de nuestros clientes y buscamos soluciones efectivas.",
+      "Anticipamos las necesidades de nuestros clientes y buscamos soluciones efectivas que optimicen sus operaciones y garanticen el éxito conjunto.",
   },
 ];
 ---
 
-<section class="py-40 bg-[#FAFCFD] px-4 md:px-0">
+<section class="py-40 px-4 md:px-0 text-justify">
   <div class="container mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2">
       <div
@@ -40,7 +40,9 @@ const values = [
       </div>
       <div>
         <div class="mb-8 mt-10 lg:mt-0">
-          <h2 class="text-primary text-2xl lg:text-5xl font-bold mb-6">
+          <h2
+            class="uppercase text-primary text-2xl lg:text-5xl font-bold mb-6"
+          >
             Nuestros valores
           </h2>
           <p class="text-paragraph text-lg md:text-xl leading-relaxed">
@@ -53,14 +55,17 @@ const values = [
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {
               values.map((item) => (
-                <li class=" shadow-xl rounded-lg px-8 py-10 bg-white space-y-4 group hover:bg-[#0090D2] ease-in-out duration-500">
-                  <span class="block text-primary  text-xl font-semibold group-hover:text-white ease-in-out duration-500">
-                    <span>
-                      <Icon name={item.image} class=" text-5xl" />
+                <li class="  rounded-lg px-8 py-10  space-y-4 group border border-[#77d9ff] hover:shadow-xl bg-[#eff9ff]    hover:shadow-[#008dd0]/50 ease-in-out duration-500">
+                  <span class="flex items-center justify-start text-xl font-semibold text-[#05324c] ease-in-out duration-500">
+                    <span class="flex items-center justify-center rounded-full w-12 h-12 bg-[#04adef] mr-2">
+                      <Icon
+                        name={item.image}
+                        class=" text-5xl text-white rounded-full w-8 h-8"
+                      />
                     </span>
                     {item.backTitle}
                   </span>
-                  <span class="block text-paragraph group-hover:text-white ease-in-out duration-500">
+                  <span class="block  text-[#05324c] ease-in-out duration-500">
                     {item.backDescription}
                   </span>
                 </li>

@@ -24,59 +24,72 @@ const videos = [
     videoUrl: "/videos/almacenaje.mp4",
     category: "Almacenaje",
     description:
-      "Nuestro almacén cuenta con áreas con diferentes temperaturas.",
+      "Nuestro moderno almacén cuenta con áreas diseñadas para garantizar la conservación óptima de productos farmacéuticos, adaptándonos a los requerimientos específicos de cada cliente. \n Condiciones de temperatura controlada:",
     details: [
       "Temperatura ambiente controlada: 15°C - 25°C.",
-      "Temperatura ambiente: 15°C - 30°C.",
+      "Temperatura ambiente estándar: 15°C - 30°C.",
       "Temperatura refrigerada: 2°C - 8°C.",
       "Espacios enrejados para productos controlados.",
-      "Monitoreo y control de temperatura.",
+      "Monitoreo y control de temperatura con sistemas especializados.",
     ],
+    observacion: "",
   },
   {
     id: 3,
     videoUrl: "/videos/calidad.mp4",
     category: "Servicios de área de calidad",
-    description: "",
+    description:
+      "En nuestro almacén, garantizamos un control riguroso y procesos que cumplen con los más altos estándares de calidad. \n Nuestros servicios incluyen:",
     details: [
-      "Muestreo, revisión y reporte del estado de la mercadería que ingresa al almacén en estado de cuarentena (revisión organoléptica).",
-      "Revisión de devoluciones y reporte del estado de la mercadería.",
-      "Control y registro de la mercadería en el área de bajas.",
-      "Separación de productos para el área de contra muestras e inventario.",
-      "Programación y descarga de la data de los registradores de temperatura y envió de la información.",
-      "Asesoría en BPA y BPDT.",
+      "Muestreo, revisión y reporte del estado de la mercadería que ingresa en estado de cuarentena (revisión organoléptica).",
+      "Revisión de devoluciones y generación de reportes sobre el estado de la mercadería.",
+      "Control y registro de productos en el área de bajas.",
+      "Separación y organización de productos para el área de contramuestras e inventario.",
+      "Programación y descarga de datos de los registradores de temperatura, con envío detallado de la información.",
+      "Asesoría especializada en BPA (Buenas Prácticas de Almacenamiento) y BPDT (Buenas Prácticas de Distribución y Transporte).",
     ],
+    observacion: "",
   },
   {
     id: 4,
     videoUrl: "/videos/seguridad.mp4",
     category: "Seguridad",
-    description: "",
+    description:
+      "En Argon Pharma, priorizamos la seguridad integral de nuestras instalaciones y operaciones, implementando sistemas avanzados y un equipo altamente capacitado. \n Nuestras medidas incluyen:",
     details: [
-      "Selección cuidadosa de nuestro personal.",
-      "Persona responsable que monitorea el perfecto funcionamiento de la seguridad.",
-      "Videovigilancia en todos los sectores de la empresa, operativa las 24horas del día.",
-      "Sistema de alarmas electrónicas conectadas a los dispositivos móviles de los principales ejecutivos, para una respuesta inmediata ante cualquier eventualidad.",
+      "Selección rigurosa de personal de seguridad, asegurando un equipo confiable y profesional.",
+      "Monitoreo continuo a cargo de personal responsable que supervisa el funcionamiento óptimo de los sistemas de seguridad.",
+      "Videovigilancia 24/7 en todas las áreas de la empresa, garantizando control y cobertura constante.",
+      "Sistema de alarmas electrónicas conectadas a los dispositivos móviles de los principales ejecutivos, permitiendo una respuesta inmediata ante cualquier eventualidad.",
     ],
+    observacion: "",
   },
   {
     id: 5,
     videoUrl: "/videos/transporte.mp4",
     category: "Transporte",
     description:
-      "Cubrimos Lima Metropolitana y nuestros vehículos cuentan con monitoreo GPS en tiempo real.",
-    details: [],
+      "En Argon Pharma, ofrecemos un servicio de transporte seguro y eficiente, cumpliendo con los más altos estándares del sector farmacéutico. ",
+    details: [
+      "Cobertura en Lima Metropolitana: Garantizamos entregas puntuales y confiables en toda la ciudad.",
+      "Monitoreo GPS en tiempo real: Nuestra flota cuenta con tecnología avanzada de rastreo, asegurando visibilidad total y control durante el transporte.",
+      "Unidades acondicionadas: Nuestras unidades móviles están especialmente equipadas y preparadas para el transporte de productos:",
+      "De temperatura controlada: Entre 15°C – 25°C.",
+      "De temperatura refrigerada: Entre 2°C – 8°C.",
+    ],
+    observacion:
+      "Condiciones óptimas de conservación: Garantizamos que los productos mantengan las temperaturas señaladas, preservando su integridad y calidad en todo el proceso de distribución.",
   },
 ];
 ---
 
 <Layout title="Servicios">
   <Header headers={headers} />
-  <main class="py-40 px-4 bg-[#FAFCFD]">
+  <main class="py-40 px-4">
     <section class="container mx-auto">
       <div class="mb-20 mx-auto max-w-5xl">
         <h1
-          class="text-3xl md:text-5xl mb-4 text-primary font-bold text-center"
+          class="uppercase text-3xl md:text-5xl mb-4 text-primary font-bold text-center"
         >
           Nuestros servicios
         </h1>
@@ -89,26 +102,35 @@ const videos = [
       <div class="space-y-20">
         {
           videos.map((video) => (
-            <div class="video-container grid grid-cols-1 md:grid-cols-2  bg-[#F1F5F9]   rounded-3xl">
+            <div class="video-container grid grid-cols-1 md:grid-cols-2  bg-[#eff9ff] border border-[#77d9ff]   rounded-3xl">
               <div class=" pr-4 md:pr-20 p-8 md:p-10 space-y-4 flex flex-col justify-center">
-                <h2 class=" text-primary font-semibold text-2xl md:text-3xl">
+                <h2 class=" text-primary font-semibold text-xl md:text-2xl">
                   {video.category}
                 </h2>
-                <p class=" text-lg md:text-2xl text-paragraph">
-                  {video.description}
+                <p class=" text-lg  text-paragraph">
+                  {video.description
+                    ? video.description.split("\n").map((line) => (
+                        <span>
+                          <br />
+                          {line}
+                          <br />
+                        </span>
+                      ))
+                    : null}
                 </p>
                 <ul>
                   {video.details.map((detail) => (
                     <li class=" text-paragraph text-lg flex items-start space-x-2">
                       <span class="block w-5 h-5">
-                        <Icon name="check" class="text-subtitle w-5 h-5" />
+                        <Icon name="check" class="text-red-800 w-5 h-5" />
                       </span>
                       <span class="block ">{detail}</span>
                     </li>
                   ))}
                 </ul>
+                <p class="text-paragraph">{video.observacion}</p>
               </div>
-              <div class="">
+              <div class=" flex items-end">
                 <VideoCard videoUrl={video.videoUrl} />
               </div>
             </div>

@@ -5,14 +5,14 @@ export default {
     fontFamily: {
       exo: ["Exo", "sans-serif"],
       rubik: ["Rubik", "sans-serif"],
-      mulish: ["Mulish", "sans-serif"],
-      manrope: ["Manrope", "sans-serif"],
     },
     extend: {
       colors: {
-        primary: "#04334D",
-        subtitle: "#C80D17",
-        paragraph: "#075073",
+        primary: "#05324c",
+        title: "#05324c",
+        subtitle: "#05324c",
+        paragraph: "#0070a8",
+        "bg-icon": "#04adef",
       },
       fontSize: {
         h1: "60px",

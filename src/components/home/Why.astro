@@ -6,13 +6,19 @@ const accordionItems = [
     id: "experience",
     title: "Experiencia",
     content:
-      "Con más de 5 años de trayectoria en el sector de almacenamiento y transporte de productos farmacéuticos, en Argon estamos comprometidos con la satisfacción de nuestros clientes. Nos enorgullece ofrecer un servicio de calidad que se adapta a sus necesidades específicas.",
+      "Con más de siete años de experiencia en el sector farmacéutico, hemos inaugurado una nueva línea de negocios: un moderno almacén que ofrece servicios de almacenamiento y transporte de productos farmacéuticos. En Argón, nos comprometemos plenamente con la satisfacción de nuestros clientes, esforzándonos por brindar un servicio de calidad que no solo cumpla, sino que supere sus expectativas.",
   },
   {
     id: "custom-services",
     title: "Servicios Personalizados",
     content:
-      "Nuestro equipo de profesionales se dedica a proporcionar un servicio personalizado, asegurándose de que cada cliente reciba soluciones a medida que atiendan sus requerimientos particulares.",
+      "En Argón Pharma, entendemos que cada cliente es único. Nuestro equipo de profesionales se especializa en diseñar soluciones personalizadas de almacenamiento y transporte, adaptándonos a los requerimientos específicos de cada negocio.",
+  },
+  {
+    id: "sistemas",
+    title: "Sistemas",
+    content:
+      "Contamos con el sistema SAP OB, una herramienta de clase mundial, que nos permite optimizar todas nuestras operaciones logísticas, garantizando trazabilidad, eficiencia y control en tiempo real de cada proceso. Contamos con estructuras metálicas, sismo resistente y equipos de transporte europeos",
   },
   {
     id: "certifications",
@@ -22,17 +28,19 @@ const accordionItems = [
 ];
 ---
 
-<section class="py-40 bg-[url('/images/bg-why.webp')] px-4 md:px-0">
+<section class="py-40 bg-[#04ADEF]/80 px-4 md:px-0">
   <div
     class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20"
     data-gsap="why"
   >
     <div>
       <div class="mb-12">
-        <p class="font-semibold text-lg md:text-2xl text-subtitle mb-4">
+        <p class="font-semibold text-lg md:text-2xl mb-4 text-white">
           ¿Por qué elegirnos?
         </p>
-        <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-white">
+        <h2
+          class="uppercase text-2xl md:text-3xl lg:text-5xl font-bold text-white"
+        >
           Descubra por qué muchos clientes nos prefieren
         </h2>
       </div>
@@ -46,7 +54,7 @@ const accordionItems = [
                     class="accordion-header w-full py-4 text-left   transition-colors duration-200 flex justify-between items-center"
                     data-accordion-id={item.id}
                   >
-                    <span class="text-xl font-semibold text-white">
+                    <span class="text-xl text-justify font-semibold text-white">
                       {item.title}
                     </span>
                     <Icon name="chevron-up" class="w-6 h-6 text-white" />
@@ -55,7 +63,7 @@ const accordionItems = [
                     class="accordion-content  px-2 overflow-hidden transition-all duration-300 max-h-0 opacity-0"
                     data-accordion-id={item.id}
                   >
-                    <p class="text-[#B2BDC6] text-lg md:text-xl leading-relaxed py-4">
+                    <p class="text-white text-justify text-lg md:text-xl leading-relaxed py-4">
                       {item.content}
                     </p>
                   </div>
@@ -68,7 +76,7 @@ const accordionItems = [
     </div>
     <div>
       <img
-        src="/images/whyus.webp"
+        src="/images/whyus.jpg"
         alt="¿Por qué elegirnos?"
         class="rounded-xl w-full h-[680px] object-cover"
       />
