@@ -85,15 +85,15 @@ const videos = [
 
 <Layout title="Servicios">
   <Header headers={headers} />
-  <main class="py-40 px-4">
+  <main class="py-20 md:py-40 px-4">
     <section class="container mx-auto">
       <div class="mb-20 mx-auto max-w-5xl">
         <h1
-          class="uppercase text-3xl md:text-5xl mb-4 text-primary font-bold text-center"
+          class="uppercase text-xl md:text-3xl lg:text-5xl mb-4 text-primary font-bold text-center"
         >
           Nuestros servicios
         </h1>
-        <p class="text-lg md:text-2xl text-paragraph text-center">
+        <p class="text-base md:text-2xl text-paragraph text-justify">
           Ofrecemos soluciones innovadoras en distribución y almacenaje de
           medicamentos. Nuestro enfoque está en garantizar la calidad, seguridad
           y eficiencia en cada proceso.
@@ -102,15 +102,15 @@ const videos = [
       <div class="space-y-20">
         {
           videos.map((video) => (
-            <div class="video-container grid grid-cols-1 md:grid-cols-2  bg-[#eff9ff] border border-[#77d9ff]   rounded-3xl">
-              <div class=" pr-4 md:pr-20 p-8 md:p-10 space-y-4 flex flex-col justify-center">
+            <div class="video-container grid grid-cols-1 md:grid-cols-2  bg-[#eff9ff] border border-[#77d9ff] rounded-xl   md:rounded-3xl">
+              <div class=" pr-4 md:pr-20 p-6 md:p-10 space-y-4 flex flex-col justify-center">
                 <h2 class=" text-primary font-semibold text-xl md:text-2xl">
                   {video.category}
                 </h2>
-                <p class=" text-lg  text-paragraph">
+                <p class=" text-base md:text-lg  text-paragraph">
                   {video.description
                     ? video.description.split("\n").map((line) => (
-                        <span>
+                        <span class=" text-base md:text-lg">
                           <br />
                           {line}
                           <br />
@@ -120,11 +120,11 @@ const videos = [
                 </p>
                 <ul>
                   {video.details.map((detail) => (
-                    <li class=" text-paragraph text-lg flex items-start space-x-2">
+                    <li class=" text-paragraph text-base md:text-lg flex items-start space-x-2">
                       <span class="block w-5 h-5">
                         <Icon name="check" class="text-red-800 w-5 h-5" />
                       </span>
-                      <span class="block ">{detail}</span>
+                      <span class="block">{detail}</span>
                     </li>
                   ))}
                 </ul>

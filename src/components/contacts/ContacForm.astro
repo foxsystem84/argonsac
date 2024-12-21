@@ -3,17 +3,17 @@ import FormInput from "./FormInput.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<main class="py-40 mt-0 space-y-20 px-4 md:px-0">
+<main class="py-20 md:py-40 mt-0 space-y-20 px-4 md:px-0">
   <section class="mx-auto container">
     <div class="grid grid-cols-1 lg:grid-cols-2">
       <div class="space-y-4 mr-0 md:mr-20 lg:mr-40 mb-10 md:mb-0">
-        <h1 class="text-primary text-5xl font-bold">Contáctanos</h1>
-        <p class="text-lg text-paragraph">
+        <h1 class="text-primary text-xl md:text-5xl font-bold">Contáctanos</h1>
+        <p class="text-base md:text-lg text-paragraph">
           <b>¡Estamos aquí para ti!</b> Nuestro equipo de expertos te atenderá de
           forma personalizada y rápida, para resolver cualquier duda o inquietud
           que tengas.
         </p>
-        <ul class="text-lg text-paragraph">
+        <ul class="text-base md:text-lg text-paragraph">
           <!-- <li class="block mb-4">Teléfonos</li> -->
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
@@ -40,7 +40,7 @@ import { Icon } from "astro-icon/components";
             <span class="block">(01) 701 5720</span>
           </li>
         </ul>
-        <ul class="text-lg text-paragraph">
+        <ul class="text-base md:text-lg text-paragraph">
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
               ><Icon name="envelope" class="w-5 h-5 text-[#C80D17]" /></span
@@ -48,7 +48,7 @@ import { Icon } from "astro-icon/components";
             <span class="block">operaciones@argonsac.com</span>
           </li>
         </ul>
-        <ul class="text-lg text-paragraph">
+        <ul class="text-base md:text-lg text-paragraph">
           <li class="flex items-start">
             <span class="block w-5 h-5 mr-4"
               ><Icon name="map" class="w-5 h-5 text-[#C80D17]" /></span
@@ -59,7 +59,7 @@ import { Icon } from "astro-icon/components";
             </span>
           </li>
         </ul>
-        <ul class="text-lg text-paragraph">
+        <ul class="text-base md:text-lg text-paragraph">
           <li class="flex items-center">
             <span class="block w-5 h-5 mr-4"
               ><Icon name="clock" class="w-5 h-5 text-[#C80D17]" /></span
@@ -166,7 +166,7 @@ import { Icon } from "astro-icon/components";
     num2 = Math.floor(Math.random() * 10);
 
     (document.getElementById("captchaLabel") as HTMLElement).innerText =
-      `¿Cuánto es ${num1} + ${num2}?`;
+      `¿Eres humano? (${num1} + ${num2})=?`;
     (document.getElementById("captchaInput") as HTMLInputElement).value = ""; // Limpiar campo del captcha
     (document.getElementById("captchaError") as HTMLDivElement).innerText = ""; // Limpiar error previo
   }
