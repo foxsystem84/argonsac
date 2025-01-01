@@ -1,0 +1,1 @@
+import{g as o}from"./index.DjKJqAo0.js";import{S as t}from"./ScrollTrigger.DZdR0iV_.js";o.registerPlugin(t);const e=document.querySelectorAll("[data-gsap]");e.forEach(r=>{o.from(r,{opacity:0,y:100,duration:1,scrollTrigger:{trigger:r,start:"top 80%",end:"top 20%",toggleActions:"play none none reverse"}})});

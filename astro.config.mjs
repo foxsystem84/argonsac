@@ -13,6 +13,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://argonsac.com",
   integrations: [tailwind(), icon(), sitemap(), robotsTxt()],
   output: "static",
   adapter: vercel(),
